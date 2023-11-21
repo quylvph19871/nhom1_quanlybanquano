@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_key">#D7DCF6</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="text">#444444</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray">#717171</color>
-    <color name="grey">#e0e0e0</color>
-    <color name="red">#FF0000</color>
-    <color name="green">#4CAF50</color>
+    <color name="red">#B22830</color>
+    <color name="gray">#6F6E6E</color>
+    <color name="gray2">#CCCBCB</color>
+    <color name="trang_xam">#D9D9D9</color>
+    <color name="card">#F3F1F1</color>
+    <color name="textview_tt">#B2B0B0</color>
 </resources>

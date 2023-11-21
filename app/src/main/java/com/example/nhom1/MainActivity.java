@@ -1,18 +1,18 @@
 package com.example.nhom1;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.MenuItem;
 
-import com.example.nhom1.Fragment.DonHangFragment;
-import com.example.nhom1.Fragment.GioHangFragment;
-import com.example.nhom1.Fragment.HomeFragment;
-import com.example.nhom1.Fragment.SanPhamFragment;
-import com.example.nhom1.Fragment.TaiKhoanFragment;
+import com.example.nhom1.Fragment.Account_Fragment;
+import com.example.nhom1.Fragment.FragmentProduct;
+import com.example.nhom1.Fragment.HomeFrgm;
+import com.example.nhom1.Fragment.StoreFrgm;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -23,46 +23,42 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottomNavigationView = findViewById(R.id.bottomnavigation);
+        bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.setSelectedItemId(R.id.Trangchu);
-        load(new HomeFragment());
+        bottomNavigationView.setSelectedItemId(R.id.pageTrangChu);
+        loadFragment(new HomeFrgm());
 
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         Fragment fragment;
-        if (item.getItemId() == R.id.Trangchu ) {
-            fragment = new HomeFragment();
-            load(fragment);
+        if (item.getItemId() == R.id.pageTrangChu) {
+            fragment = new HomeFrgm();
+            loadFragment(fragment);
             return true;
-        }
-        else if (item.getItemId() == R.id.sanPham) {
-            fragment = new SanPhamFragment();
-            load(fragment);
+        } else if (item.getItemId() == R.id.pageSanPham) {
+            fragment = new FragmentProduct();
+            loadFragment(fragment);
             return true;
-        }else if (item.getItemId() == R.id.gioHang) {
-            fragment = new GioHangFragment();
-            load(fragment);
+        } else if (item.getItemId() == R.id.pageBanHang) {
+            fragment = new StoreFrgm();
+            loadFragment(fragment);
             return true;
-        } else if (item.getItemId() == R.id.donhang) {
-            fragment = new DonHangFragment();
-            load(fragment);
-            return true;
-        } else if (item.getItemId() == R.id.taikhoan) {
-            fragment = new TaiKhoanFragment();
-            load(fragment);
+        } else if (item.getItemId() == R.id.pageTaiKhoan) {
+            loadFragment(new Account_Fragment());
             return true;
         } else {
             return false;
         }
+
     }
 
-    public void load(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+    private void loadFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
