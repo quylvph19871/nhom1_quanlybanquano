@@ -1,4 +1,4 @@
-package com.example.nhom1.DAOmodel;
+package com.example.nhom1.DAOModel;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -15,7 +15,7 @@ public class DAOUser {
     private SQLiteDatabase database;
 
     public DAOUser(Context context) {
-        DbHelper dbHelper = new DbHelper(context , "nhom1",null , 1);
+        DbHelper dbHelper = new DbHelper(context);
         database = dbHelper.getReadableDatabase();
         database = dbHelper.getWritableDatabase();
     }

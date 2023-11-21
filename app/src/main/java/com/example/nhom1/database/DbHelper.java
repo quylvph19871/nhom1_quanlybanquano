@@ -13,44 +13,96 @@ public class DbHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableLoaiSanPham = "CREATE TABLE LOAISANPHAM(id_loaisp Integer PRIMARY KEY AUTOINCREMENT, ten_loaisp Text);";
-        db.execSQL(createTableLoaiSanPham);
-        db.execSQL("INSERT INTO LOAISANPHAM VALUES(1, 'ao ret'), (2, 'ao'), (3, 'quan');");
+// Bảng thể loại
+        String createTableTheLoai = "CREATE TABLE THELOAI(maLoai INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "tenLoai TEXT);";
+        db.execSQL(createTableTheLoai);
+        db.execSQL("INSERT INTO THELOAI VALUES(1, 'Áo'), (2, 'Quần'), (3, 'Áo khoác');");
+//Bảng sản phẩm
+        String createTableSanPham = ("CREATE TABLE SanPham(\n" +
+                "MaSanPham INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "image TEXT,\n" +
+                "TenSanPham TEXT,\n" +
+                "Price double,\n" +
+                "MaLoai INTEGER REFERENCES THELOAI(maLoai),\n" +
+                "MoTa TEXT\n" +
 
-        String createTableUser = "CREATE TABLE USER(id_user Integer PRIMARY KEY AUTOINCREMENT, ten_user Text, password text, sdt Text, diachi Text);";
-        db.execSQL(createTableUser);
-
-        String createTableSanPham = "CREATE TABLE SANPHAM(id_sp Integer PRIMARY KEY AUTOINCREMENT, id_loaisp Integer REFERENCES LOAISANPHAM(id_loaisp), anh_sp BLOG, ten_sp Text, mota_sp Text, giatien_sp double );";
+                ");");
         db.execSQL(createTableSanPham);
-
-        String createTableGioHang = "CREATE TABLE GIOHANG(id_giohang Integer, id_sp Integer REFERENCES SANPHAM(id_sp), soluong Integer, kichco Text, dongia double);";
-        db.execSQL(createTableGioHang);
-
-        String createTableHoaDon = "CREATE TABLE HOADON(id_hoadon Integer PRIMARY KEY AUTOINCREMENT, id_user Integer REFERENCES LOAISANPHAM(id_user), id_giohang Integer, tenkhachhang Text, ngayinhoadon Text);";
-        db.execSQL(createTableHoaDon);
-
-        String createTableChiTietHoaDon = "CREATE TABLE CHTIETDONHANG(id_chitiet Integer PRIMARY KEY AUTOINCREMENT, id_hoadon Integer REFERENCES HOADON(id_hoadon), id_user Integer REFERENCES USER(id_user), ten_user Text, tenkhachhang Text, ngayinhoadon text,id_sp Integer, soluong Integer, kichco Text, dongia double, tongtien double);";
-        db.execSQL(createTableChiTietHoaDon);
-
-
+// Bảng chức vụ
+        String createTableChucVu = "CREATE Table ChucVu(\n" +
+                "MaChucVu INTEGER PRIMARY KEY,\n" +
+                "TenChucVu TEXT\n" +
+                ");";
+        db.execSQL(createTableChucVu);
+        db.execSQL(InsertInto.insert_chucvu);
+// Bảng User
+        String tableUser = "CREATE Table User (\n" +
+                "MaUser INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "FullName TEXT,\n" +
+                "Username TEXT,\n" +
+                "ChucVu INTEGER REFERENCES ChucVu(machucvu),\n" +
+                "Password TEXT,\n" +
+                "SDT TEXT,\n" +
+                "NamSinh INTEGER\n" +
+                ");";
+        db.execSQL(tableUser);
+        db.execSQL(InsertInto.insert_user);
+// Bảng hóa đơn
+        String tableHoaDon = "CREATE Table HoaDon (\n" +
+                "MaHoaDon INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "MaUser INTEGER REFERENCES User(MaUser),\n" +
+                "TenKhachHang TEXT,\n" +
+                "NgayLapHD TEXT,\n" +
+                "MaGioHang INTEGER\n" +
+                ");";
+        db.execSQL(tableHoaDon);
+// Bảng giỏ hàng
+        String tableGioHang = "CREATE Table GioHang (\n" +
+                "MaGioHang INTEGER,\n" +
+                "MaSanPham INTEGER REFERENCES SanPham(MaSanPham),\n" +
+                "SoLuong INTEGER,\n" +
+                "Size TEXT,\n" +
+                "DonGia DOUBLE\n" +
+                ");";
+        db.execSQL(tableGioHang);
+// Bảng lưu hóa đơn
+        String tableLuuHoaDon = "CREATE Table LuuHoaDon (\n" +
+                "maLuu INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+                "maHoaDon INTEGER REFERENCES HoaDon(MaHoaDon),\n" +
+                "maUser INTEGER REFERENCES User(MaUser),\n" +
+                "tenUser TEXT,\n" +
+                "tenKhachHang TEXT,\n" +
+                "NgayLapHD TEXT,\n" +
+                "maSP INTEGER,\n" +
+                "tenSP TEXT,\n" +
+                "soLuong INTEGER,\n" +
+                "size TEXT,\n" +
+                "donGia DOUBLE\n," +
+                "thanhTien DOUBLE\n" +
+                ");";
+        db.execSQL(tableLuuHoaDon);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String dropLoaiSP ="drop table if exists LOAISANPHAM";
+        String dropLoaiSP = "drop table if exists THELOAI";
         db.execSQL(dropLoaiSP);
-        String dropUser = "drop table if exists USER";
-        db.execSQL(dropUser);
-        String dropSanPham = "drop table if exists SANPHAM";
+        String dropSanPham = "drop table if exists SanPham";
         db.execSQL(dropSanPham);
-        String dropGioHang = "drop table if exists GIOHANG";
-        db.execSQL(dropGioHang);
-        String dropHoaDon = "drop table if exists HOADON";
+        String dropChucVu = "drop table if exists ChucVu";
+        db.execSQL(dropChucVu);
+        String dropUser = "drop table if exists User";
+        db.execSQL(dropUser);
+        String dropHoaDon = "drop table if exists HoaDon";
         db.execSQL(dropHoaDon);
-        String dropHoaDonChiTiet = "drop table if exists CHTIETDONHANG";
-        db.execSQL(dropHoaDonChiTiet);
+        String dropLuuHoaDon = "drop table if exists LuuHoaDon";
+        db.execSQL(dropLuuHoaDon);
+        String dropGioHang = "drop table if exists GioHang";
+        db.execSQL(dropGioHang);
     }
+
 }
+

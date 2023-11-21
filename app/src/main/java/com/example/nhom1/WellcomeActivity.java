@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -27,7 +26,7 @@ public class WellcomeActivity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(5000);
-                    Intent intent = new Intent(WellcomeActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(WellcomeActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }catch (InterruptedException e){
