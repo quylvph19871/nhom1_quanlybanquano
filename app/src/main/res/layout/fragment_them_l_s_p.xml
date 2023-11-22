@@ -52,7 +52,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Tên Loại"
-                android:textColor="@color/red"
+                android:textColor="@color/teal_200"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -83,7 +83,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bo_tron_edt"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/teal_200"
             android:text="Hủy"
             android:gravity="center"
             android:textSize="25dp"
@@ -103,7 +103,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bo_tron_edt"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/teal_200"
             android:text="Xác Nhận"
             android:gravity="center"
             android:textSize="25dp"

@@ -1,5 +1,4 @@
-package com.example.nhom1.DAOmodel;
-
+package com.example.nhom1.DAOModel;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -17,7 +16,7 @@ public class DAOGioHang {
 
     //    Khởi tạo Constructor
     public DAOGioHang(Context context){
-        dbHelper = new DbHelper(context, "DuAn1", null, 1);
+        dbHelper = new DbHelper(context);
         database = dbHelper.getWritableDatabase();
         database = dbHelper.getReadableDatabase();
     }
@@ -48,7 +47,7 @@ public class DAOGioHang {
             do {
                 int maGioHang = cursor.getInt(0);
                 int maSanPham = cursor.getInt(1);
-                byte[] imgSP = cursor.getBlob(2);
+                String imgSP = cursor.getString(2);
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);
@@ -85,7 +84,7 @@ public class DAOGioHang {
             do {
                 int maGioHang = cursor.getInt(0);
                 int maSanPham = cursor.getInt(1);
-                byte[] imgSP = cursor.getBlob(2);
+                String imgSP = cursor.getString(2);
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);

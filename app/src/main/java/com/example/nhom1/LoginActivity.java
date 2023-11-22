@@ -1,6 +1,7 @@
 package com.example.nhom1;
 
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,7 +12,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom1.DAOmodel.DAOUser;
+import com.example.nhom1.DAOModel.DAOUser;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +46,12 @@ public class LoginActivity extends AppCompatActivity {
                     edtPassword.setInputType(129);
                     img_hidePassword.setImageResource(R.drawable.ic_visibility_off);
                 }
+            }
+        });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
 

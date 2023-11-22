@@ -20,6 +20,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.nhom1.DAOModel.DAOGioHang;
+import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Fragment.ChiTietSPFrgm;
 import com.example.nhom1.Fragment.ChiTietSPSuaFrgm;
 import com.example.nhom1.Model.GioHang;
@@ -35,8 +37,8 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
 
     private Context context;
     private ArrayList<SanPham> list;
-//    DAOGioHang daoGioHang;
-//    DAOUser daoUser;
+    DAOGioHang daoGioHang;
+    DAOUser daoUser;
     BottomNavigationView bottomNavigationView;
 
     public AdapterSanPham(Context context, ArrayList<SanPham> list) {
@@ -50,8 +52,8 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view_sanpham, parent, false);
-//        daoGioHang = new DAOGioHang(view.getContext());
-//        daoUser = new DAOUser(view.getContext());
+        daoGioHang = new DAOGioHang(view.getContext());
+        daoUser = new DAOUser(view.getContext());
         bottomNavigationView = view.findViewById(R.id.navigation);
         return new UserViewHolder(view);
     }
@@ -62,7 +64,6 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         SanPham sanPham = list.get(position);
         holder.TenSanPham.setText(sanPham.getTenSanPham());
         holder.GiaTien.setText(String.valueOf(sanPham.getPrice()));
-
         Picasso.get().load(sanPham.getImage()).into(holder.img_SanPham);
         String outTongTien = String.format("%,.0f", sanPham.getPrice());
         holder.GiaTien.setText(outTongTien + " VNĐ");
@@ -72,7 +73,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                bottomNavigationView.setSelectedItemId(R.id.pageBanHang);
+                bottomNavigationView.setSelectedItemId(R.id.pageBanHang);
                 loadFragment(new ChiTietSPFrgm(sanPham));
             }
         });

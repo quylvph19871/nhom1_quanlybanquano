@@ -1,27 +1,23 @@
 package com.example.nhom1.Adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
+
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.nhom1.DAOmodel.DAOGioHang;
+import com.example.nhom1.DAOModel.DAOGioHang;
 import com.example.nhom1.Fragment.StoreFrgm;
 import com.example.nhom1.Model.GioHang;
-import com.example.nhom1.model.SanPham;
 import com.example.nhom1.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -51,9 +47,8 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
         GioHang gioHang = list.get(position);
 
 //        Set ảnh cho Items
-        byte[] imgSP = gioHang.getImgSP();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(imgSP, 0, imgSP.length);
-        holder.imgGHAnhSP.setImageBitmap(bitmap);
+
+        Picasso.get().load(gioHang.getImgSP()).into(holder.imgGHAnhSP);
         holder.txtGHTenSP.setText(gioHang.getTenSP() + " - " + gioHang.getSize());
         double donGia = gioHang.getDonGia();
         String outDonGia = String.format("%,.0f", donGia);
@@ -97,7 +92,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+//                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
 
@@ -121,7 +116,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+//                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
         holder.edtGHSoLuong.getText().toString();

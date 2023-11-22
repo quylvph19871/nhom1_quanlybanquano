@@ -2,6 +2,7 @@ package com.example.nhom1.Fragment;
 
 import android.app.Dialog;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,10 +13,12 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.nhom1.LoginActivity;
 import com.example.nhom1.R;
 
 
@@ -95,11 +98,11 @@ public class Account_Fragment extends Fragment {
                 btnDialogXN.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(getActivity(), DangNhapAct.class);
-//                        Toast.makeText(getContext(), "Đăng xuất!", Toast.LENGTH_SHORT).show();
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        startActivity(intent);
-//                        dialog.dismiss();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        Toast.makeText(getContext(), "Đăng xuất!", Toast.LENGTH_SHORT).show();
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        dialog.dismiss();
                     }
                 });
                 btnDialogHuy.setOnClickListener(new View.OnClickListener() {

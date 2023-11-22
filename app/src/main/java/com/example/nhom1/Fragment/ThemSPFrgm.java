@@ -2,6 +2,7 @@ package com.example.nhom1.Fragment;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -36,10 +37,11 @@ public class ThemSPFrgm extends Fragment {
     private EditText edName, edPrice, edMoTa, btnAddSP, btnHuySP,edImage;
     AutoCompleteTextView edtLoaiSP;
     private DAOSanPham daoSanPham;
-    final int REQUEST_CODE_GALLERY = 999;
+
 
     String strTenSP, strGiaban, strLoaiSP, strMota,strImage;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,10 +50,10 @@ public class ThemSPFrgm extends Fragment {
         daoSanPham = new DAOSanPham(getActivity());
         ImageView btnBackThemSP = view.findViewById(R.id.btnBackThemSP);
 
-        edImage=view.findViewById(R.id.ed_anhSP);
-        edName = view.findViewById(R.id.ed_tenSP);
-        edPrice = view.findViewById(R.id.ed_giaSP);
-        edMoTa = view.findViewById(R.id.ed_Mota);
+        edImage=view.findViewById(R.id.edImageSP);
+        edName = view.findViewById(R.id.edNameSP);
+        edPrice = view.findViewById(R.id.edPrice);
+        edMoTa = view.findViewById(R.id.edMoTa);
         edtLoaiSP = view.findViewById(R.id.edtLoaiSP);
         btnAddSP = view.findViewById(R.id.btnAcceptSP);
         btnHuySP = view.findViewById(R.id.btnHuySp);
@@ -64,7 +66,7 @@ public class ThemSPFrgm extends Fragment {
         });
 
 
-//        Set Data cho spnLoaiSP - AnhNQ
+//        Set Data cho spnLoaiSP
         ArrayList<TheLoai> listTheLoai = daoSanPham.getDSLSP();
         ArrayList<String> listTenTL = new ArrayList<>();
         ArrayList<Integer> listMaTL = new ArrayList<>();
@@ -135,27 +137,9 @@ public class ThemSPFrgm extends Fragment {
         return view;
     }
 
-    private byte[] imageToByte(ImageView image) {
-        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-        byte[] byteArray = outputStream.toByteArray();
-        return byteArray;
-    }
 
-    private void LayAnh() {
-        //cấp quyền từ người dùng
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 999);
-            //cho phép sử dụng
-        } else {
-            Intent intent = new Intent(Intent.ACTION_PICK);//truy cập vào bộ nhớ của máy
-            intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_CODE_GALLERY);
-        }
-    }
 
-    Bitmap imgChose = null;
+
 
 
     private void loadFragment(Fragment fragment) {
@@ -203,10 +187,14 @@ public class ThemSPFrgm extends Fragment {
 
         if (strMota.isEmpty()) {
             edMoTa.setError("Vui lòng nhập!");
-            edPrice.setHintTextColor(Color.RED);
+            edMoTa.setHintTextColor(Color.RED);
             checkAdd = false;
         }
-
+        if (strImage.isEmpty()) {
+            edImage.setError("Vui lòng nhập!");
+            edImage.setHintTextColor(Color.RED);
+            checkAdd = false;
+        }
         return checkAdd;
     }
 
