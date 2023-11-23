@@ -16,12 +16,13 @@
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/gray</item>
+
         <item name="android:fontFamily">@font/ct_font_regular</item>
+
         <item name="android:paddingLeft">15dp</item>
         <item name="android:paddingRight">15dp</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
-
         <item name="android:background">@drawable/ct_edittext</item>
     </style>
 
@@ -45,9 +46,7 @@
         <item name="android:paddingEnd">0dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20dp</item>
-
         <item name="android:fontFamily">@font/ct_font_regular</item>
-
         <item name="android:background">@color/gray2</item>
     </style>
 </resources>

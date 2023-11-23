@@ -10,7 +10,9 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
     public static final String DB_NAME="duan1";
-    public static final int DB_VERSION=1;
+
+    public static final int DB_VERSION=3;
+
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -66,7 +68,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "MaGioHang INTEGER,\n" +
                 "MaSanPham INTEGER REFERENCES SanPham(MaSanPham),\n" +
                 "SoLuong INTEGER,\n" +
-                "Size TEXT,\n" +
+                "Size TEXT,\n" +"Mau TEXT,\n"+
                 "DonGia DOUBLE\n" +
                 ");";
         db.execSQL(tableGioHang);

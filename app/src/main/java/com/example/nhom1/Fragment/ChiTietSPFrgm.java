@@ -1,8 +1,7 @@
 package com.example.nhom1.Fragment;
 
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,10 +31,14 @@ public class ChiTietSPFrgm extends Fragment {
     SanPham sanPham;
     String sizeCheck;
     TextView txtChiTietTenSp, txtChiTietGiaSP, txtChiTietMoTaSP, txtChiTietTongTien, txtChiTietSL;
+
     ImageView img_sp, btnSoLuongTang, btnSoLuongGiam;
     double donGia = 0;
     int soLuong;
     double tongTien;
+
+    String mauCheck;
+
     DAOGioHang daoGioHang;
 
     public ChiTietSPFrgm(SanPham sanPham) {
@@ -61,7 +64,8 @@ public class ChiTietSPFrgm extends Fragment {
         RadioButton rdoSizeVua = view.findViewById(R.id.rdoSizeVua);
         RadioButton rdoSizeNho = view.findViewById(R.id.rdoSizeNho);
 
-//        Set kích thước Size
+        RadioButton rdoMauDen = view.findViewById(R.id.rdoMauDen);
+        RadioButton rdoMauTrang = view.findViewById(R.id.rdoMauTrang);
 
         double donGiaGoc = sanPham.getPrice();
         rdoSizeNho.setChecked(true);
@@ -75,7 +79,9 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeNho.setChecked(false);
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "L";
-                    donGia = 16000;
+
+                    donGia = 0;
+
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
                     txtChiTietTongTien.setText(mTinhTien + " VNĐ");
@@ -91,6 +97,7 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeNho.setChecked(false);
                     sizeCheck = "V";
                     donGia = 10000;
+                    donGia = 0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
                     txtChiTietTongTien.setText(mTinhTien + " VNĐ");
@@ -106,6 +113,37 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "N";
                     donGia = 0;
+                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+                    String mTinhTien = String.format("%,.0f", tongTien);
+                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                }
+            }
+        });
+
+        //Mau
+        rdoMauDen.setChecked(true);
+        mauCheck="N";
+        donGia=0;
+        rdoMauDen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rdoMauTrang.setChecked(false);
+                    mauCheck="N";
+                    donGia=0;
+                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+                    String mTinhTien = String.format("%,.0f", tongTien);
+                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                }
+            }
+        });
+        rdoMauTrang.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    rdoMauDen.setChecked(false);
+                    mauCheck="N";
+                    donGia=0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
                     txtChiTietTongTien.setText(mTinhTien + " VNĐ");
@@ -169,7 +207,11 @@ public class ChiTietSPFrgm extends Fragment {
         btnChiTietAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GioHang gioHang = new GioHang(1, sanPham.getId(), soLuong, sizeCheck, donGia + donGiaGoc);
+
+
+
+                GioHang gioHang = new GioHang(1, sanPham.getId(), soLuong, sizeCheck,mauCheck, donGia + donGiaGoc);
+
                 ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
                 if (outList.size() != 0){
 //                - Có: Update số lượng
@@ -202,7 +244,6 @@ public class ChiTietSPFrgm extends Fragment {
         return view;
     }
 
-    //    Tính tổng tiền
     public double tinhTien(int mSoLuong, double mDonGia, double mDonGiaGoc){
         double tongTien = 0;
         tongTien = mSoLuong * (mDonGia + mDonGiaGoc);

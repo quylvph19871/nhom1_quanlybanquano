@@ -102,7 +102,7 @@ public class DAOSanPham {
         return list;
     }
 
-//    DAO LOẠI SẢN PHẨM - ANHNQ
+//    DAO LOẠI SẢN PHẨM
 
     //    Thêm Loại Sản phẩm
     public boolean addLSP(TheLoai theLoai) {

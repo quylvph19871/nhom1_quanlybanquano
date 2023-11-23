@@ -30,6 +30,7 @@ public class DAOGioHang {
         values.put("MaSanPham", gioHang.getMaSanPham());
         values.put("SoLuong", gioHang.getSoLuong());
         values.put("Size", gioHang.getSize());
+        values.put("Mau",gioHang.getMau());
         values.put("DonGia", gioHang.getDonGia());
         long check = database.insert("GioHang", null, values);
         if (check == -1){
@@ -53,8 +54,9 @@ public class DAOGioHang {
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);
-                double donGia = cursor.getDouble(6);
-                list.add(new GioHang(maGioHang, maSanPham, imgSP, tenSp, soLuong, size, donGia));
+                String mau=cursor.getString(6);
+                double donGia = cursor.getDouble(7);
+                list.add(new GioHang(maGioHang, maSanPham, imgSP, tenSp, soLuong, size,mau, donGia));
             }   while (cursor.moveToNext());
         }
         return list;
@@ -67,6 +69,7 @@ public class DAOGioHang {
         values.put("MaSanPham", gioHang.getMaSanPham());
         values.put("SoLuong", gioHang.getSoLuong());
         values.put("Size", gioHang.getSize());
+        values.put("Mau",gioHang.getMau());
         values.put("DonGia", gioHang.getDonGia());
         long check = database.update("GioHang", values, "MaSanPham = ? AND Size = ?", new String[]{String.valueOf(gioHang.getMaSanPham()), gioHang.getSize()});
         if (check == -1){
@@ -90,8 +93,9 @@ public class DAOGioHang {
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);
-                double donGia = cursor.getDouble(6);
-                list.add(new GioHang(maGioHang, maSanPham, imgSP, tenSp, soLuong, size, donGia));
+                String mau=cursor.getString(6);
+                double donGia = cursor.getDouble(7);
+                list.add(new GioHang(maGioHang, maSanPham, imgSP, tenSp, soLuong, size,mau, donGia));
             }   while (cursor.moveToNext());
         }
         return list;

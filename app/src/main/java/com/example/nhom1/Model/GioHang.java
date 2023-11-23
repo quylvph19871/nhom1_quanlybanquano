@@ -7,23 +7,31 @@ public class GioHang {
     String tenSP;
     int soLuong;
     String size;
+    String mau;
     double donGia;
 
-    public GioHang(int maGioHang, int maSanPham, int soLuong, String size, double donGia) {
+
+
+    public GioHang(int maGioHang, int maSanPham, int soLuong, String size, String mau, double donGia) {
         MaGioHang = maGioHang;
         this.maSanPham = maSanPham;
         this.soLuong = soLuong;
         this.size = size;
+        this.mau = mau;
         this.donGia = donGia;
     }
 
-    public GioHang(int maGioHang, int maSanPham, String imgSP, String tenSP, int soLuong, String size, double donGia) {
+
+
+    public GioHang(int maGioHang, int maSanPham, String imgSP, String tenSP, int soLuong, String size, String mau, double donGia) {
+
         MaGioHang = maGioHang;
         this.maSanPham = maSanPham;
         this.imgSP = imgSP;
         this.tenSP = tenSP;
         this.soLuong = soLuong;
         this.size = size;
+        this.mau = mau;
         this.donGia = donGia;
     }
 
@@ -73,6 +81,14 @@ public class GioHang {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getMau() {
+        return mau;
+    }
+
+    public void setMau(String mau) {
+        this.mau = mau;
     }
 
     public double getDonGia() {

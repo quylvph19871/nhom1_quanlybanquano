@@ -2,8 +2,6 @@ package com.example.nhom1.Adapter;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.example.nhom1.DAOModel.DAOGioHang;
 import com.example.nhom1.Fragment.StoreFrgm;
@@ -49,6 +46,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
         GioHang gioHang = list.get(position);
 
 //        Set ảnh cho Items
+
         Picasso.get().load(gioHang.getImgSP()).into(holder.imgGHAnhSP);
         holder.txtGHTenSP.setText(gioHang.getTenSP() + " - " + gioHang.getSize());
         double donGia = gioHang.getDonGia();
@@ -93,7 +91,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+//                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
 
@@ -117,7 +115,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+//               StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
         holder.edtGHSoLuong.getText().toString();

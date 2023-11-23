@@ -22,6 +22,7 @@ import com.example.nhom1.DAOModel.DAOSanPham;
 import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.Model.TheLoai;
 import com.example.nhom1.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -64,10 +65,15 @@ public class ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
         }
         txtCTSPSuaLoaiSP.setText("Loại sản phẩm: " + tenLSP);
         txtCTSPSuaMoTaSP.setText(sanPham.getMota());
+
         String productsImage = sanPham.getImage();
 //        Bitmap bitmap = BitmapFactory.decodeByteArray(productsImage, 0, productsImage.length);
 //        img.setImageBitmap(bitmap);
 //        img1.setImageBitmap(bitmap);
+
+        Picasso.get().load(sanPham.getImage()).into(img);
+        Picasso.get().load(sanPham.getImage()).into(img1);
+
 
         String outGia = String.format("%,.0f", sanPham.getPrice());
         txtCTSPSuaGiaSP.setText(outGia + " VNĐ");

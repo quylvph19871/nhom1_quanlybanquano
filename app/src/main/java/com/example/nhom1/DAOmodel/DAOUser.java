@@ -15,7 +15,10 @@ public class DAOUser {
     private SQLiteDatabase database;
 
     public DAOUser(Context context) {
+
         DbHelper dbHelper = new DbHelper(context);
+
+
         database = dbHelper.getReadableDatabase();
         database = dbHelper.getWritableDatabase();
     }

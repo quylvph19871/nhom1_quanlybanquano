@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.example.nhom1.DAOModel.DAOGioHang;
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Fragment.ChiTietSPFrgm;
@@ -73,7 +74,6 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                bottomNavigationView.setSelectedItemId(R.id.pageBanHang);
                 loadFragment(new ChiTietSPFrgm(sanPham));
             }
         });
@@ -82,7 +82,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
             @Override
             public void onClick(View v) {
 //                Khởi tạo Model
-                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N", sanPham.getPrice());
+                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N","Đen", sanPham.getPrice());
 //                Check Valid SP (SanPham.ID, Size)
                 ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
 //                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();

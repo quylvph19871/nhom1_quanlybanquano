@@ -1,5 +1,4 @@
 package com.example.nhom1.DAOModel;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -18,6 +17,7 @@ public class DAOLuuHD {
 
     //    Khởi tạo Constructor
     public DAOLuuHD(Context context){
+
         dbHelper = new DbHelper(context);
         database = dbHelper.getWritableDatabase();
         database = dbHelper.getReadableDatabase();
