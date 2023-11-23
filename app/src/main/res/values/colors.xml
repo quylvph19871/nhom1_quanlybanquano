@@ -7,18 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-//HEAD
-    <color name="gray">#717171</color>
-    <color name="grey">#e0e0e0</color>
-    <color name="red">#FF0000</color>
+
+
     <color name="green">#4CAF50</color>
-    <color name="gray2">#CCCBCB</color>
-=======
+    <color name="text">#333333</color>
     <color name="red">#B22830</color>
     <color name="gray">#6F6E6E</color>
     <color name="gray2">#CCCBCB</color>
     <color name="trang_xam">#D9D9D9</color>
     <color name="card">#F3F1F1</color>
     <color name="textview_tt">#B2B0B0</color>
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
+
 </resources>

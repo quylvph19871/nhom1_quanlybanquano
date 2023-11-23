@@ -182,7 +182,7 @@ public class SuaSPFrgm extends Fragment {
                         @Override
                         public void onClick(View v) {
                             if (checkEdt()) {
-                            maLoai = listMaTL.get(index);
+                                maLoai = listMaTL.get(index);
                                 daoSanPham.updateSanPham(strAnhSP, strTenSP, strGiaban, maLoai, strMota, sanPham.getId());
                                 Toast.makeText(getActivity(), "Sửa thành công", Toast.LENGTH_SHORT).show();
                                 loadFragment(new FragmentProduct());

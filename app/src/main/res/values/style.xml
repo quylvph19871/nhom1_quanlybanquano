@@ -5,11 +5,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">25dp</item>
         <item name="android:textColor">@color/white</item>
-<<<<<<< HEAD
-        <item name="android:fontFamily">@font/ct_font_medium</item>
-=======
 
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
+        <item name="android:fontFamily">@font/ct_font_medium</item>
+
     </style>
 
     <style name="edt_TextBox1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -18,18 +16,13 @@
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/gray</item>
-<<<<<<< HEAD
         <item name="android:fontFamily">@font/ct_font_regular</item>
-=======
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
         <item name="android:paddingLeft">15dp</item>
         <item name="android:paddingRight">15dp</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
-<<<<<<< HEAD
+
         <item name="android:background">@drawable/ct_edittext</item>
-=======
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
     </style>
 
     <style name="edt_TextBox2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -38,18 +31,13 @@
         <item name="android:textSize">20dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/gray</item>
-<<<<<<< HEAD
         <item name="android:fontFamily">@font/ct_font_regular</item>
-=======
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
         <item name="android:paddingLeft">15dp</item>
         <item name="android:paddingRight">15dp</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
-<<<<<<< HEAD
         <item name="android:background">@drawable/ct_edittext_2</item>
-=======
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
+
     </style>
 
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
@@ -57,10 +45,9 @@
         <item name="android:paddingEnd">0dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20dp</item>
-<<<<<<< HEAD
+
         <item name="android:fontFamily">@font/ct_font_regular</item>
-=======
->>>>>>> 908a44b5b3e478268fed8e70c9b7497392da2e40
+
         <item name="android:background">@color/gray2</item>
     </style>
 </resources>

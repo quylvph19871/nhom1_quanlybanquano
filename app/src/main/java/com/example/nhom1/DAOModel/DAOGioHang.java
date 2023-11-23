@@ -1,12 +1,13 @@
-package com.example.nhom1.DAOmodel;
+package com.example.nhom1.DAOModel;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.nhom1.database.DbHelper;
+
 import com.example.nhom1.Model.GioHang;
+import com.example.nhom1.database.DbHelper;
 
 import java.util.ArrayList;
 
@@ -15,14 +16,14 @@ public class DAOGioHang {
     private SQLiteDatabase database;
     DbHelper dbHelper;
 
-    //    Khởi tạo Constructor
+//    Khởi tạo Constructor
     public DAOGioHang(Context context){
-        dbHelper = new DbHelper(context, "DuAn1", null, 1);
+        dbHelper = new DbHelper(context);
         database = dbHelper.getWritableDatabase();
         database = dbHelper.getReadableDatabase();
     }
 
-    //    Thêm sản phẩm vào giỏ hàng
+//    Thêm sản phẩm vào giỏ hàng
     public boolean addGiohang(GioHang gioHang){
         ContentValues values = new ContentValues();
         values.put("MaGioHang", gioHang.getMaGioHang());
@@ -39,7 +40,7 @@ public class DAOGioHang {
         }
     }
 
-    //    Lấy danh sách sản phẩm có trong giỏ hàng
+//    Lấy danh sách sản phẩm có trong giỏ hàng
     public ArrayList<GioHang> getGioHang(){
         ArrayList<GioHang> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT GioHang.MaGioHang, GioHang.masanpham, SanPham.image, SanPham.tensanpham, GioHang.SoLuong, GioHang.size, GioHang.dongia FROM GioHang, SanPham WHERE GioHang.MaSanPham = SanPham.MaSanPham", null);
@@ -48,7 +49,7 @@ public class DAOGioHang {
             do {
                 int maGioHang = cursor.getInt(0);
                 int maSanPham = cursor.getInt(1);
-                byte[] imgSP = cursor.getBlob(2);
+                String imgSP = cursor.getString(2);
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);
@@ -59,7 +60,7 @@ public class DAOGioHang {
         return list;
     }
 
-    //    Sửa số lượng sản phẩm
+//    Sửa số lượng sản phẩm
     public boolean updateGioHang(GioHang gioHang){
         ContentValues values = new ContentValues();
         values.put("MaGioHang", gioHang.getMaGioHang());
@@ -76,7 +77,7 @@ public class DAOGioHang {
         }
     }
 
-    //    Check tồn tại SP
+//    Check tồn tại SP
     public ArrayList<GioHang> checkValidGioHang(GioHang gioHang){
         ArrayList<GioHang> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT GioHang.MaGioHang, GioHang.masanpham, SanPham.image, SanPham.tensanpham, GioHang.SoLuong, GioHang.size, GioHang.dongia FROM GioHang, SanPham WHERE GioHang.MaSanPham = SanPham.MaSanPham AND SanPham.MaSanPham = ? AND GioHang.size = ?", new String[]{String.valueOf(gioHang.getMaSanPham()), gioHang.getSize()});
@@ -85,7 +86,7 @@ public class DAOGioHang {
             do {
                 int maGioHang = cursor.getInt(0);
                 int maSanPham = cursor.getInt(1);
-                byte[] imgSP = cursor.getBlob(2);
+                String imgSP = cursor.getString(2);
                 String tenSp = cursor.getString(3);
                 int soLuong = cursor.getInt(4);
                 String size = cursor.getString(5);
@@ -96,7 +97,7 @@ public class DAOGioHang {
         return list;
     }
 
-    //    Xóa SP khỏi giỏ hàng
+//    Xóa SP khỏi giỏ hàng
     public boolean deleteGiohang(GioHang gioHang){
         long check = database.delete("GioHang", "MaSanPham = ? AND Size = ?", new String[]{String.valueOf(gioHang.getMaSanPham()), gioHang.getSize()});
         if (check == -1){
@@ -107,7 +108,7 @@ public class DAOGioHang {
         }
     }
 
-    //    Tính tổng tiền thanh toán từ giỏ hàng
+//    Tính tổng tiền thanh toán từ giỏ hàng
     public double tongTienGiohang(){
         double tongTien = 0;
         Cursor cursor = database.rawQuery("SELECT SUM(GioHang.soluong * GioHang.dongia) as TongTien FROM GioHang", null);

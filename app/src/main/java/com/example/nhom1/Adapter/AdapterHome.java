@@ -16,7 +16,6 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.nhom1.Fragment.ChiTietSPFrgm;
 import com.example.nhom1.MainActivity;
 import com.example.nhom1.Model.SanPham;
@@ -29,7 +28,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder>{
 
     private ArrayList<SanPham> list;
     private Context context;
-
 
     public AdapterHome(ArrayList<SanPham> list, Context context) {
         this.list = list;

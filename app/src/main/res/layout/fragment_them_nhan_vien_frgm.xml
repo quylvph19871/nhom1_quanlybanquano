@@ -5,15 +5,12 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         >
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +23,7 @@
             >
 
             <ImageView
-                android:id="@+id/btnBackThemSP"
+                android:id="@+id/btnBackThemNV"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_to_back"
@@ -38,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/black"
                 android:textAlignment="center"
-                android:text="Thêm Sản Phẩm"
+                android:text="Thêm nhân viên"
                 android:textSize="30dp"
                 android:fontFamily="@font/ct_font_bold"
                 android:layout_marginRight="30dp"
@@ -47,12 +44,20 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:layout_marginTop="20dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
             >
 
             <LinearLayout
@@ -63,18 +68,17 @@
 
                 <TextView
                     style="@style/edt_Label"
-                    android:text="Tên Sản Phẩm"
+                    android:text="Họ và tên"
                     android:textColor="@color/red"
                     android:layout_marginLeft="10dp"
                     />
 
                 <EditText
-                    android:id="@+id/edNameSP"
+                    android:id="@+id/edTenNhanVien"
                     style="@style/edt_TextBox2"
-                    android:hint="Nhập tên Sản Phẩm"
                     android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    />
+                    android:hint="Họ và tên"
+                    android:textColorHint="@color/black" />
 
             </LinearLayout>
 
@@ -86,95 +90,72 @@
 
                 <TextView
                     style="@style/edt_Label"
-                    android:text="Giá Bán"
+                    android:text="Tên đăng nhập"
                     android:textColor="@color/red"
                     android:layout_marginLeft="10dp"
                     />
 
                 <EditText
-                    android:id="@+id/edPrice"
+                    android:id="@+id/edUsername"
                     style="@style/edt_TextBox2"
-                    android:hint="Nhập giá bán"
-                    android:maxLength="7"
+                    android:layout_marginTop="5dp"
+                    android:hint="Tên đăng nhập"
+                    android:textColorHint="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    style="@style/edt_Label"
+                    android:layout_marginLeft="10dp"
+                    android:text="Mật khẩu"
+                    android:textColor="@color/red" />
+
+                <EditText
+                    android:id="@+id/edPassword"
+                    style="@style/edt_TextBox2"
+                    android:hint="Mật khẩu"
+                    android:inputType="textPassword"
+                    android:layout_marginTop="5dp"
+                    android:textColorHint="@color/black"
+                    />
+
+                <TextView
+                    style="@style/edt_Label"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Số điện thoại"
+                    android:textColor="@color/red" />
+
+                <EditText
+                    android:id="@+id/edSDT"
+                    android:maxLength="10"
+                    style="@style/edt_TextBox2"
+                    android:hint="Số điện thoại"
                     android:inputType="number"
                     android:layout_marginTop="5dp"
                     android:textColorHint="@color/black"
                     />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
                 <TextView
                     style="@style/edt_Label"
-                    android:text="Loại sản phẩm"
-                    android:textColor="@color/red"
                     android:layout_marginLeft="10dp"
-                    />
-
-                <AutoCompleteTextView
-                    android:id="@+id/edtLoaiSP"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập loại Sản Phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Mô Tả"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    />
+                    android:text="Năm sinh"
+                    android:textColor="@color/red" />
 
                 <EditText
-                    android:id="@+id/edMoTa"
+                    android:id="@+id/edNamSinh"
                     style="@style/edt_TextBox2"
-                    android:hint="Nhập mô tả sản phẩm"
+                    android:maxLength="4"
+                    android:hint="Năm sinh"
+                    android:inputType="number"
                     android:layout_marginTop="5dp"
                     android:textColorHint="@color/black"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:minLines="2"
-                    android:gravity="top"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Ảnh sản phẩm"
-                    android:textColor="@color/teal_200"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <EditText
-                    android:id="@+id/edImageSP"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập link ảnh sản phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:minLines="2"
-                    android:gravity="top"
                     />
 
             </LinearLayout>
@@ -190,9 +171,9 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             >
-            <!--//cuong them id-->
+
             <EditText
-                android:id="@+id/btnHuySp"
+                android:id="@+id/btnHuyThemNV"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"
@@ -213,7 +194,7 @@
                 />
 
             <EditText
-                android:id="@+id/btnAcceptSP"
+                android:id="@+id/btnAddThemNV"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"

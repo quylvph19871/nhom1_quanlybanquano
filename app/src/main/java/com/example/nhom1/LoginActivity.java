@@ -1,17 +1,26 @@
 package com.example.nhom1;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nhom1.DAOmodel.DAOUser;
+import com.example.nhom1.DAOModel.DAOUser;
+import com.example.nhom1.Model.User;
+
+import java.util.ArrayList;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -56,6 +65,65 @@ public class LoginActivity extends AppCompatActivity {
         edtUser.setText(user);
         edtPassword.setText(pass);
         checkBox.setChecked(rem);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String strUser = edtUser.getText().toString();
+                String strPass = edtPassword.getText().toString();
+                boolean checkLogin = true;
+
+//                Kiểm tra tên đăng nhập
+                if (strUser.isEmpty()) {
+                    edtUser.setHintTextColor(Color.RED);
+                    Toast.makeText(LoginActivity.this, "Nhập tên đăng nhập!", Toast.LENGTH_SHORT).show();
+                    checkLogin = false;
+                }
+//                Kiểm tra mật khẩu
+                if (strPass.isEmpty()) {
+                    edtPassword.setHintTextColor(Color.RED);
+                    Toast.makeText(LoginActivity.this, "Nhập mật khẩu!", Toast.LENGTH_SHORT).show();
+                    checkLogin = false;
+                }
+
+//                Kiểm tra User tồn tại
+                if (checkLogin) {
+                    ArrayList<User> list = daoUser.checkLogin(strUser, strPass);
+                    if (list.size() > 0) {
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("user", strUser);
+                        startActivity(intent);
+                        User user = list.get(0);
+                        int maUser = user.getID_User();
+                        remmemberUser(maUser, strUser, strPass, checkBox.isChecked());
+                        closeKeyboard();
+                    } else {
+                        Toast.makeText(LoginActivity.this, "Tên đăng nhập hoặc mật khẩu không đúng", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
+    public void remmemberUser(int maUser, String u, String p, boolean status) {
+        SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        if (!status) {
+            editor.clear();
+        } else {
+            editor.putInt("MA", maUser);
+            editor.putString("USERNAME", u);
+            editor.putString("PASSWORD", p);
+            editor.putBoolean("REMEMBER", status);
+        }
+        editor.commit();
+    }
+
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 }

@@ -19,9 +19,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.example.nhom1.DAOModel.DAOGioHang;
+import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Fragment.ChiTietSPFrgm;
-import com.example.nhom1.Fragment.ChiTietSPSuaFrgm;
+
 import com.example.nhom1.Model.GioHang;
 import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.Model.User;
@@ -35,8 +36,8 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
 
     private Context context;
     private ArrayList<SanPham> list;
-//    DAOGioHang daoGioHang;
-//    DAOUser daoUser;
+    DAOGioHang daoGioHang;
+    DAOUser daoUser;
     BottomNavigationView bottomNavigationView;
 
     public AdapterSanPham(Context context, ArrayList<SanPham> list) {
@@ -50,8 +51,8 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.card_view_sanpham, parent, false);
-//        daoGioHang = new DAOGioHang(view.getContext());
-//        daoUser = new DAOUser(view.getContext());
+        daoGioHang = new DAOGioHang(view.getContext());
+        daoUser = new DAOUser(view.getContext());
         bottomNavigationView = view.findViewById(R.id.navigation);
         return new UserViewHolder(view);
     }
@@ -62,8 +63,8 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         SanPham sanPham = list.get(position);
         holder.TenSanPham.setText(sanPham.getTenSanPham());
         holder.GiaTien.setText(String.valueOf(sanPham.getPrice()));
-
         Picasso.get().load(sanPham.getImage()).into(holder.img_SanPham);
+        //
         String outTongTien = String.format("%,.0f", sanPham.getPrice());
         holder.GiaTien.setText(outTongTien + " VNĐ");
 
@@ -77,52 +78,52 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
             }
         });
 //        Button thêm sản phẩm vào giỏ hàng (Icon ADD)
-//        holder.add_sanpham.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Khởi tạo Model
-//                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N", sanPham.getPrice());
-////                Check Valid SP (SanPham.ID, Size)
-//                ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
-////                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();
-//                if (outList.size() != 0) {
-////                - Có: Update số lượng
-//                    GioHang gioHang1 = outList.get(0);
-////                    Toast.makeText(context, "OldSL: " + gioHang1.getSoLuong(), Toast.LENGTH_SHORT).show();
-//                    int newSL = gioHang1.getSoLuong() + 1;
-////                    Toast.makeText(context, "NewSL" + newSL, Toast.LENGTH_SHORT).show();
-//                    gioHang.setSoLuong(newSL);
-//                    boolean kiemtra = daoGioHang.updateGioHang(gioHang);
-//                    if (kiemtra) {
-//                        notifyDataSetChanged();
-////                        Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
-//                    }
-//                } else {
-////                - Không: Thêm sản phẩm
-//                    boolean check = daoGioHang.addGiohang(gioHang);
-//                    if (check) {
-//                        Toast.makeText(context, "Thêm sản phẩm thành công!", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            }
-//        });
+        holder.add_sanpham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Khởi tạo Model
+                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N", sanPham.getPrice());
+//                Check Valid SP (SanPham.ID, Size)
+                ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
+//                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();
+                if (outList.size() != 0) {
+//                - Có: Update số lượng
+                    GioHang gioHang1 = outList.get(0);
+//                    Toast.makeText(context, "OldSL: " + gioHang1.getSoLuong(), Toast.LENGTH_SHORT).show();
+                    int newSL = gioHang1.getSoLuong() + 1;
+//                    Toast.makeText(context, "NewSL" + newSL, Toast.LENGTH_SHORT).show();
+                    gioHang.setSoLuong(newSL);
+                    boolean kiemtra = daoGioHang.updateGioHang(gioHang);
+                    if (kiemtra) {
+                        notifyDataSetChanged();
+//                        Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+//                - Không: Thêm sản phẩm
+                    boolean check = daoGioHang.addGiohang(gioHang);
+                    if (check) {
+                        Toast.makeText(context, "Thêm sản phẩm thành công!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
 
-//        SharedPreferences pref = context.getSharedPreferences("USER_FILE", context.MODE_PRIVATE);
-//        int maUser = pref.getInt("MA", 0);
-//        User user = daoUser.getUser(maUser);
-//        int quyenUser = user.getMaChucVu();
-//        if (quyenUser == 2) {
-//            holder.info_sanpham.setVisibility(View.GONE);
-//        }
+        SharedPreferences pref = context.getSharedPreferences("USER_FILE", context.MODE_PRIVATE);
+        int maUser = pref.getInt("MA", 0);
+        User user = daoUser.getUser(maUser);
+        int quyenUser = user.getMaChucVu();
+        if (quyenUser == 2) {
+            holder.info_sanpham.setVisibility(View.GONE);
+        }
 
         holder.info_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new ChiTietSPSuaFrgm(sanPham));
+                loadFragment(new ChiTietSPFrgm(sanPham));
             }
         });
     }

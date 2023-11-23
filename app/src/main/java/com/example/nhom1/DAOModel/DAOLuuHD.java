@@ -1,4 +1,4 @@
-package com.example.nhom1.DAOmodel;
+package com.example.nhom1.DAOModel;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -18,7 +18,7 @@ public class DAOLuuHD {
 
     //    Khởi tạo Constructor
     public DAOLuuHD(Context context){
-        dbHelper = new DbHelper(context , "nhom1" , null,1);
+        dbHelper = new DbHelper(context);
         database = dbHelper.getWritableDatabase();
         database = dbHelper.getReadableDatabase();
     }

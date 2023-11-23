@@ -64,11 +64,11 @@ public class ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
         }
         txtCTSPSuaLoaiSP.setText("Loại sản phẩm: " + tenLSP);
         txtCTSPSuaMoTaSP.setText(sanPham.getMota());
-//        byte[] productsImage = sanPham.getImage();
+        String productsImage = sanPham.getImage();
 //        Bitmap bitmap = BitmapFactory.decodeByteArray(productsImage, 0, productsImage.length);
 //        img.setImageBitmap(bitmap);
 //        img1.setImageBitmap(bitmap);
-        //
+
         String outGia = String.format("%,.0f", sanPham.getPrice());
         txtCTSPSuaGiaSP.setText(outGia + " VNĐ");
         // sự kiện onclick

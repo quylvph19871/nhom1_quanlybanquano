@@ -28,7 +28,7 @@ public class DAOSanPham {
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
-        statement.bindString(1,image);
+        statement.bindString(1, image);
         statement.bindString(2, TenSanPham);
         statement.bindDouble(3, Price);
         statement.bindLong(4, MaLoai);
@@ -40,7 +40,7 @@ public class DAOSanPham {
         String sql = "UPDATE SanPham SET image = ?, TenSanPham = ?, Price = ?, MaLoai = ?, MoTa = ? WHERE MaSanPham =?";
         SQLiteStatement statement = database.compileStatement(sql);
 
-        statement.bindString(1,image);
+        statement.bindString(1, image);
         statement.bindString(2, TenSanPham);
         statement.bindDouble(3, Price);
         statement.bindLong(4, MaLoai);
@@ -60,6 +60,7 @@ public class DAOSanPham {
         statement.execute();
         database.close();
     }
+
     public ArrayList<SanPham> getAllProduct(int rdoCheck) {
         String sql = null;
         if (rdoCheck == 0) {
