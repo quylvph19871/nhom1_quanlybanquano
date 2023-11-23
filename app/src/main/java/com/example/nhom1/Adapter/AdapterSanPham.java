@@ -73,7 +73,6 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bottomNavigationView.setSelectedItemId(R.id.pageBanHang);
                 loadFragment(new ChiTietSPFrgm(sanPham));
             }
         });
@@ -112,13 +111,13 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
 //            }
 //        });
 
-//        SharedPreferences pref = context.getSharedPreferences("USER_FILE", context.MODE_PRIVATE);
-//        int maUser = pref.getInt("MA", 0);
-//        User user = daoUser.getUser(maUser);
-//        int quyenUser = user.getMaChucVu();
-//        if (quyenUser == 2) {
-//            holder.info_sanpham.setVisibility(View.GONE);
-//        }
+        SharedPreferences pref = context.getSharedPreferences("USER_FILE", context.MODE_PRIVATE);
+        int maUser = pref.getInt("MA", 0);
+        User user = daoUser.getUser(maUser);
+        int quyenUser = user.getMaChucVu();
+        if (quyenUser == 2) {
+            holder.info_sanpham.setVisibility(View.GONE);
+        }
 
         holder.info_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override

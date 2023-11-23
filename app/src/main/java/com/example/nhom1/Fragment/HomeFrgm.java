@@ -59,9 +59,9 @@ public class HomeFrgm extends Fragment {
         SharedPreferences pref = getActivity().getSharedPreferences("USER_FILE", getActivity().MODE_PRIVATE);
         int maUserNow = pref.getInt("MA", 0);
         User user = daoUser.getUser(maUserNow);
-//        String fullName = user.getFullName();
-//
-//        txtHello.setText("Xin chào, " + fullName + "!");
+        String fullName = user.getFullName();
+
+        txtHello.setText("Xin chào, " + fullName + "!");
 
         ArrayList<SanPham> listSanPham = daoSanPham.getAllProduct(0);
         ArrayList<Integer> listMaSPTop = daoLuuHD.getTopSP();

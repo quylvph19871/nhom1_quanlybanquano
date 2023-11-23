@@ -116,7 +116,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-//                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+//               StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
         holder.edtGHSoLuong.getText().toString();

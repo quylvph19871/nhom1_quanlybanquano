@@ -3,6 +3,7 @@ package com.example.nhom1.Fragment;
 import android.app.Dialog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -18,13 +19,16 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.LoginActivity;
+import com.example.nhom1.Model.User;
 import com.example.nhom1.R;
 
 
 public class Account_Fragment extends Fragment {
     private LinearLayout userFrgmTaiKhoan, userFrgmDoiMK, userFrgmTKDoanhThu, userFrgmTKNhanVien, userFrgmThemSP, userFrgmThemLSP, userFrgmThemNhanVien, userFrgmDangXuat;
     TextView txtUserName, txtChucVu;
+    DAOUser daoUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +46,21 @@ public class Account_Fragment extends Fragment {
         txtUserName = view.findViewById(R.id.txtUserName);
         txtChucVu = view.findViewById(R.id.txtChucVu);
 
+        daoUser=new DAOUser(getContext());
+        SharedPreferences pref = getActivity().getSharedPreferences("USER_FILE", getActivity().MODE_PRIVATE);
+        int maUser = pref.getInt("MA", 0);
+        User user = daoUser.getUser(maUser);
+        int quyenUser = user.getMaChucVu();
 
+        if (quyenUser == 2) {
+            userFrgmThemNhanVien.setVisibility(View.GONE);
+            userFrgmTKNhanVien.setVisibility(View.GONE);
+            userFrgmThemSP.setVisibility(View.GONE);
+            userFrgmThemLSP.setVisibility(View.GONE);
+        }
+
+        txtUserName.setText(user.getFullName());
+        txtChucVu.setText(user.getTenChucVu());
 
         userFrgmTaiKhoan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +83,7 @@ public class Account_Fragment extends Fragment {
         userFrgmTKNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
             }
         });
 
@@ -81,7 +100,12 @@ public class Account_Fragment extends Fragment {
                 loadFragment(new ThemLSPFragm());
             }
         });
-
+        userFrgmThemNhanVien.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadFragment(new ThemNhanVienFrgm());
+            }
+        });
 
 
         userFrgmDangXuat.setOnClickListener(new View.OnClickListener() {
