@@ -58,22 +58,6 @@ public class Account_Fragment extends Fragment {
         txtUserName.setText(user.getFullName());
         txtChucVu.setText(user.getTenChucVu());
 
-        daoUser = new DAOUser(getContext());
-
-//        SharedPreferences pref = getActivity().getSharedPreferences("USER_FILE", getActivity().MODE_PRIVATE);
-//        int maUser = pref.getInt("MA", 0);
-//        User user = daoUser.getUser(maUser);
-//        int quyenUser = user.getMaChucVu();
-
-        if (quyenUser == 2) {
-            userFrgmThemNhanVien.setVisibility(View.GONE);
-            userFrgmTKNhanVien.setVisibility(View.GONE);
-            userFrgmThemSP.setVisibility(View.GONE);
-            userFrgmThemLSP.setVisibility(View.GONE);
-        }
-
-        txtUserName.setText(user.getFullName());
-        txtChucVu.setText(user.getTenChucVu());
 
         userFrgmTaiKhoan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +69,8 @@ public class Account_Fragment extends Fragment {
         userFrgmDoiMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                loadFragment(new DoiMKFrgm());
             }
         });
 

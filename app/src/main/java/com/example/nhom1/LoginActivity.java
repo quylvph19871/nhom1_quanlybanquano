@@ -1,5 +1,6 @@
 package com.example.nhom1;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,27 +15,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Model.User;
 
 import java.util.ArrayList;
 
-
 public class LoginActivity extends AppCompatActivity {
 
-    private DAOUser daoUser;
+     DAOUser daoUser;
     EditText edtUser, edtPassword;
     ImageView btnLogin, img_hidePassword;
     CheckBox checkBox;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         edtUser = findViewById(R.id.edtTenDangNhap);
         edtPassword = findViewById(R.id.edtMatKhau);
         checkBox = findViewById(R.id.chkNhoMK);
@@ -58,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 String strUser = edtUser.getText().toString();
                 String strPass = edtPassword.getText().toString();
                 boolean checkLogin = true;
@@ -99,7 +95,6 @@ public class LoginActivity extends AppCompatActivity {
         String user = pref.getString("USERNAME", "");
         String pass = pref.getString("PASSWORD", "");
         boolean rem = pref.getBoolean("REMEMBER", false);
-
         edtUser.setText(user);
         edtPassword.setText(pass);
         checkBox.setChecked(rem);

@@ -66,10 +66,7 @@ public class ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
         txtCTSPSuaLoaiSP.setText("Loại sản phẩm: " + tenLSP);
         txtCTSPSuaMoTaSP.setText(sanPham.getMota());
 
-        String productsImage = sanPham.getImage();
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(productsImage, 0, productsImage.length);
-//        img.setImageBitmap(bitmap);
-//        img1.setImageBitmap(bitmap);
+
 
         Picasso.get().load(sanPham.getImage()).into(img);
         Picasso.get().load(sanPham.getImage()).into(img1);

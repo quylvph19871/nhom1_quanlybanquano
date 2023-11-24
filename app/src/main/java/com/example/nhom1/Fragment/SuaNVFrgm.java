@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Model.User;
 import com.example.nhom1.R;
@@ -138,7 +139,7 @@ public class SuaNVFrgm extends Fragment {
                                     loadFragment(new UserInfoFrgm());
                                 }
                                 else {
-                                    loadFragment(new TKNhanVienFrgm());
+//                                    loadFragment(new TKNhanVienFrgm());
                                 }
                             }
                             else {

@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.nhom1.DAOModel.DAOGioHang;
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Fragment.ChiTietSPFrgm;
-
+import com.example.nhom1.Fragment.ChiTietSPSuaFrgm;
 import com.example.nhom1.Model.GioHang;
 import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.Model.User;
@@ -65,7 +65,6 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.TenSanPham.setText(sanPham.getTenSanPham());
         holder.GiaTien.setText(String.valueOf(sanPham.getPrice()));
         Picasso.get().load(sanPham.getImage()).into(holder.img_SanPham);
-        //
         String outTongTien = String.format("%,.0f", sanPham.getPrice());
         holder.GiaTien.setText(outTongTien + " VNĐ");
 
@@ -82,7 +81,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
             @Override
             public void onClick(View v) {
 //                Khởi tạo Model
-                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N","Đen", sanPham.getPrice());
+                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N", "Den",sanPham.getPrice());
 //                Check Valid SP (SanPham.ID, Size)
                 ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
 //                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();
@@ -123,7 +122,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.info_sanpham.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new ChiTietSPFrgm(sanPham));
+                loadFragment(new ChiTietSPSuaFrgm(sanPham));
             }
         });
     }
