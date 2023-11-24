@@ -1,8 +1,6 @@
 package com.example.nhom1.Fragment;
 
 import android.app.Dialog;
-
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -94,6 +91,7 @@ public class Account_Fragment extends Fragment {
         userFrgmTKDoanhThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loadFragment(new TKDoanhThuFrgm());
 
             }
         });
@@ -102,7 +100,7 @@ public class Account_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
+                loadFragment(new TKNhanVienFrgm());
 
             }
         });
@@ -110,7 +108,7 @@ public class Account_Fragment extends Fragment {
         userFrgmThemSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                loadFragment(new ThemSPFrgm());
             }
         });
 
@@ -124,7 +122,7 @@ public class Account_Fragment extends Fragment {
         userFrgmThemNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                loadFragment(new ThemNhanVienFrgm());
             }
         });
 

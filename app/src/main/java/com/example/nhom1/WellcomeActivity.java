@@ -26,8 +26,8 @@ public class WellcomeActivity extends AppCompatActivity {
             public void run() {
                 try {
                     sleep(5000);
-//                    Intent intent = new Intent(WellcomeActivity.this, LoginActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(WellcomeActivity.this, LoginActivity.class);
+                    startActivity(intent);
                     finish();
                 }catch (InterruptedException e){
                     e.printStackTrace();

@@ -47,11 +47,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-<<<<<<< HEAD
-
-=======
             android:src="@drawable/user"
->>>>>>> origin/main
             android:layout_marginTop="20dp"
             />
 
@@ -73,11 +69,7 @@
                 <TextView
                     style="@style/edt_Label"
                     android:text="Họ và tên"
-<<<<<<< HEAD
-                    android:textColor="@color/red"
-=======
                     android:textColor="@color/teal_200"
->>>>>>> origin/main
                     android:layout_marginLeft="10dp"
                     />
 
@@ -99,11 +91,7 @@
                 <TextView
                     style="@style/edt_Label"
                     android:text="Tên đăng nhập"
-<<<<<<< HEAD
-                    android:textColor="@color/red"
-=======
                     android:textColor="@color/teal_200"
->>>>>>> origin/main
                     android:layout_marginLeft="10dp"
                     />
 
@@ -126,11 +114,7 @@
                     style="@style/edt_Label"
                     android:layout_marginLeft="10dp"
                     android:text="Mật khẩu"
-<<<<<<< HEAD
-                    android:textColor="@color/red" />
-=======
                     android:textColor="@color/teal_200" />
->>>>>>> origin/main
 
                 <EditText
                     android:id="@+id/edPassword"
@@ -146,11 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Số điện thoại"
-<<<<<<< HEAD
-                    android:textColor="@color/red" />
-=======
                     android:textColor="@color/teal_200" />
->>>>>>> origin/main
 
                 <EditText
                     android:id="@+id/edSDT"
@@ -166,11 +146,7 @@
                     style="@style/edt_Label"
                     android:layout_marginLeft="10dp"
                     android:text="Năm sinh"
-<<<<<<< HEAD
-                    android:textColor="@color/red" />
-=======
                     android:textColor="@color/teal_200" />
->>>>>>> origin/main
 
                 <EditText
                     android:id="@+id/edNamSinh"
@@ -201,11 +177,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"
-<<<<<<< HEAD
-                android:backgroundTint="@color/red"
-=======
                 android:backgroundTint="@color/teal_200"
->>>>>>> origin/main
                 android:text="Hủy"
                 android:gravity="center"
                 android:textSize="25dp"
@@ -226,11 +198,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"
-<<<<<<< HEAD
-                android:backgroundTint="@color/red"
-=======
                 android:backgroundTint="@color/teal_200"
->>>>>>> origin/main
                 android:text="Xác Nhận"
                 android:gravity="center"
                 android:textSize="25dp"

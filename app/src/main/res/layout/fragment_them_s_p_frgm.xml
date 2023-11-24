@@ -48,16 +48,13 @@
                 />
 
         </LinearLayout>
-<<<<<<< HEAD
 
-=======
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_margin="20dp"
         >
->>>>>>> origin/main
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,132 +62,6 @@
             android:orientation="vertical"
             >
 
-<<<<<<< HEAD
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Tên Sản Phẩm"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <EditText
-                    android:id="@+id/edNameSP"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập tên Sản Phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Giá Bán"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <EditText
-                    android:id="@+id/edPrice"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập giá bán"
-                    android:maxLength="7"
-                    android:inputType="number"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Loại sản phẩm"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <AutoCompleteTextView
-                    android:id="@+id/edtLoaiSP"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập loại Sản Phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Mô Tả"
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <EditText
-                    android:id="@+id/edMoTa"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập mô tả sản phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:minLines="2"
-                    android:gravity="top"
-                    />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Ảnh sản phẩm"
-                    android:textColor="@color/teal_200"
-                    android:layout_marginLeft="10dp"
-                    />
-
-                <EditText
-                    android:id="@+id/edImageSP"
-                    style="@style/edt_TextBox2"
-                    android:hint="Nhập link ảnh sản phẩm"
-                    android:layout_marginTop="5dp"
-                    android:textColorHint="@color/black"
-                    android:lines="2"
-                    android:maxLines="2"
-                    android:minLines="2"
-                    android:gravity="top"
-                    />
-
-            </LinearLayout>
-
-=======
             <TextView
                 style="@style/edt_Label"
                 android:text="Tên Sản Phẩm"
@@ -254,7 +125,6 @@
                 android:textColorHint="@color/black"
                 />
 
->>>>>>> origin/main
         </LinearLayout>
 
         <LinearLayout
