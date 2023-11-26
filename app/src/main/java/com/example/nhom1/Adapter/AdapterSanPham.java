@@ -66,7 +66,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
         holder.GiaTien.setText(String.valueOf(sanPham.getPrice()));
         Picasso.get().load(sanPham.getImage()).into(holder.img_SanPham);
         String outTongTien = String.format("%,.0f", sanPham.getPrice());
-        holder.GiaTien.setText(outTongTien + " VNĐ");
+        holder.GiaTien.setText(outTongTien + "đ");
 
 //        Set sự kiện Onclick cho các Button
 //        Buton xem sản phẩm

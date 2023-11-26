@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -136,7 +137,7 @@ public class StoreFrgm extends Fragment {
         });
 
 
-        EditText btnGioHangTT = view.findViewById(R.id.btnGioHangTT);
+        AppCompatButton btnGioHangTT = view.findViewById(R.id.btnGioHangTT);
         btnGioHangTT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,7 +190,7 @@ public class StoreFrgm extends Fragment {
                         txtHDNgayBan.setText(ngayTaoHD);
                         txtHDPhuongThucTT.setText(ttoanCheck);
                         String outTongTien = String.format("%,.0f", tongTien);
-                        txtHDTongTien.setText(outTongTien + "Đ");
+                        txtHDTongTien.setText(outTongTien + "đ");
 
                         listGioHang = daoGioHang.getGioHang();
                         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());

@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -80,11 +81,11 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "XL";
 
-                    donGia = 0;
-
-                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                    String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+//                    donGia = 0;
+//
+//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+//                    String mTinhTien = String.format("%,.0f", tongTien);
+//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
                 }
             }
         });
@@ -96,10 +97,10 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeLon.setChecked(false);
                     rdoSizeNho.setChecked(false);
                     sizeCheck = "L";
-                    donGia = 0;
-                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                    String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                   // donGia = 0;
+//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+//                    String mTinhTien = String.format("%,.0f", tongTien);
+//                    txtChiTietTongTien.setText(mTinhTien + " đ");
                 }
             }
         });
@@ -111,28 +112,28 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeLon.setChecked(false);
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "M";
-                    donGia = 0;
-                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                    String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+//                    donGia = 0;
+//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+//                    String mTinhTien = String.format("%,.0f", tongTien);
+//                    txtChiTietTongTien.setText(mTinhTien + "đ");
                 }
             }
         });
 
         //Mau
         rdoMauDen.setChecked(true);
-        mauCheck="Den";
+        mauCheck="Đen";
         donGia=0;
         rdoMauDen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     rdoMauTrang.setChecked(false);
-                    mauCheck="Den";
-                    donGia=0;
-                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                    String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                    mauCheck="Đen";
+//                    donGia=0;
+//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+//                    String mTinhTien = String.format("%,.0f", tongTien);
+//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
                 }
             }
         });
@@ -141,11 +142,11 @@ public class ChiTietSPFrgm extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     rdoMauDen.setChecked(false);
-                    mauCheck="Trang";
-                    donGia=0;
-                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                    String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                    mauCheck="Trắng";
+//                    donGia=0;
+//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+//                    String mTinhTien = String.format("%,.0f", tongTien);
+//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
                 }
             }
         });
@@ -166,7 +167,7 @@ public class ChiTietSPFrgm extends Fragment {
                     }
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
-                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                    txtChiTietTongTien.setText(mTinhTien + "đ");
                 }
             }
         });
@@ -183,7 +184,7 @@ public class ChiTietSPFrgm extends Fragment {
                 }
                 tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                 String mTinhTien = String.format("%,.0f", tongTien);
-                txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+                txtChiTietTongTien.setText(mTinhTien + "đ");
             }
         });
 
@@ -191,16 +192,16 @@ public class ChiTietSPFrgm extends Fragment {
         txtChiTietTenSp.setText(sanPham.getTenSanPham());
         double giaSP = sanPham.getPrice();
         String mGiaSP = String.format("%,.0f", giaSP);
-        txtChiTietGiaSP.setText(mGiaSP + " VNĐ");
+        txtChiTietGiaSP.setText(mGiaSP + "đ");
         txtChiTietMoTaSP.setText(sanPham.getMota());
 
         Picasso.get().load(sanPham.getImage()).into(img_sp);
 
         tongTien = tinhTien(soLuong, donGia, donGiaGoc);
         String mTinhTien = String.format("%,.0f", tongTien);
-        txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+        txtChiTietTongTien.setText(mTinhTien + " đ");
 
-        EditText btnChiTietAddToCart = view.findViewById(R.id.btnChiTietAddToCart);
+        AppCompatButton btnChiTietAddToCart = view.findViewById(R.id.btnChiTietAddToCart);
 
 //        Thêm sự kiện Button Add
         btnChiTietAddToCart.setOnClickListener(new View.OnClickListener() {

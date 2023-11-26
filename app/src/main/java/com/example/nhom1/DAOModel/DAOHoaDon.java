@@ -50,7 +50,8 @@ public class DAOHoaDon {
                 "SanPham.MaSanPham, " +
                 "SanPham.tensanpham, " +
                 "GioHang.soluong, " +
-                "GioHang.size, " +"HoaDon.phuongThucTT,"+
+                "GioHang.size, " +
+                "HoaDon.phuongThucTT,"+
                 "GioHang.dongia, " +
                 "(GioHang.soluong * GioHang.dongia) as ThanhTien FROM HoaDon, GioHang, SanPham, User WHERE HoaDon.magiohang = GioHang.MaGioHang and GioHang.masanpham = SanPham.MaSanPham and HoaDon.mauser = User.MaUser", null);
         if (cursor.getCount() != 0){

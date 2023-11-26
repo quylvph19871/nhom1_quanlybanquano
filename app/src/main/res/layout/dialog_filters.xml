@@ -32,27 +32,27 @@
                 android:id="@+id/rdoSPAll"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:text="Tất cả"
-                android:textColor="@color/white"
+                android:textColor="@color/text"
                 android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rdoSPGia"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:text="Giá"
-                android:textColor="@color/white"
+                android:textColor="@color/text"
                 android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rdoSPTL"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:paddingStart="20dp"
+                android:paddingStart="10dp"
                 android:text="Thể loại"
-                android:textColor="@color/white"
+                android:textColor="@color/text"
                 android:textSize="18dp" />
         </RadioGroup>
 

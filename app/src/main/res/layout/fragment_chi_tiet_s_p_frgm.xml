@@ -2,11 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+
     >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_above="@+id/floatAddToCard"
         >
 
@@ -16,27 +19,21 @@
             android:orientation="vertical"
             >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:orientation="horizontal"
-                >
 
                 <ImageView
                     android:id="@+id/imgCTSanPham"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
                     android:src="@drawable/polo" />
 
 
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -44,63 +41,45 @@
                     style="@style/edt_Label"
                     android:text=" Tên SP"
                     android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
                     android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/txtChiTietGiaSP"
                     style="@style/edt_Label"
-                    android:layout_marginLeft="20dp"
                     android:text="29.000đ"
                     android:textColor="@color/red"
                     android:textSize="20dp"
+                    android:layout_marginTop="5dp"
+
                     android:textStyle="bold" />
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Mô tả sản phẩm"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtChiTietMoTaSP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="@font/ct_font_medium"
-                    android:text="Áo khoác gió nam cao cấp Hiddle được may từ chất liệu vải dù dày dặn 2 lớp có khả năng chống thấm nước vượt trội, độ bền cao, không xù lông hay phai màu ngay cả khi giặt máy. Giúp người mặc chống nắng, chống bụi, giữ ấm cơ thể trong thời tiết gió lạnh cực tốt. "
-                    android:textColor="@color/black"
-                    android:textSize="15dp" />
-
-                <TextView
-                    style="@style/edt_Label"
-                    android:text="Size"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
+                    <TextView
+                        style="@style/edt_Label"
+                        android:text="Size: "
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
 
                     <RadioGroup
                         android:layout_margin="5dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="fill_horizontal"
-                            >
+
 
                             <RadioButton
                                 android:id="@+id/rdoSizeNho"
                                 android:fontFamily="@font/ct_font_medium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
+                                android:textColor="@color/text"
                                 android:textSize="20dp"
                                 android:paddingLeft="10dp"
                                 android:text="M" >
@@ -108,25 +87,7 @@
 
                             </RadioButton>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="+0.000đ"
-                                android:textSize="20dp"
-                                android:fontFamily="@font/ct_font_medium"
-                                android:textColor="@color/black"
-                                android:textAlignment="textEnd"
-                                android:paddingRight="20dp"
-                                />
 
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="fill_horizontal"
-                            >
 
                             <RadioButton
                                 android:id="@+id/rdoSizeVua"
@@ -135,27 +96,13 @@
                                 android:layout_height="30dp"
                                 android:textSize="20dp"
                                 android:paddingLeft="10dp"
+                                android:textColor="@color/text"
+
+                                android:layout_marginLeft="64dp"
                                 android:text="L" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="+0.000đ"
-                                android:textSize="20dp"
-                                android:fontFamily="@font/ct_font_medium"
-                                android:textColor="@color/black"
-                                android:textAlignment="textEnd"
-                                android:paddingRight="20dp"
-                                />
 
-                        </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="fill_horizontal"
-                            >
 
                             <RadioButton
                                 android:id="@+id/rdoSizeLon"
@@ -164,46 +111,34 @@
                                 android:layout_height="30dp"
                                 android:textSize="20dp"
                                 android:paddingLeft="10dp"
+                                android:textColor="@color/text"
+
+                                android:layout_marginLeft="64dp"
                                 android:text="XL" />
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="+0.000đ"
-                                android:textSize="20dp"
-                                android:fontFamily="@font/ct_font_medium"
-                                android:textColor="@color/black"
-                                android:textAlignment="textEnd"
-                                android:paddingRight="20dp"
-                                />
-
-                        </LinearLayout>
                     </RadioGroup>
 
                 </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Màu"
-                    style="@style/edt_Label"
-                    android:textColor="@color/black"
-                    />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+
                     android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Màu"
+                        style="@style/edt_Label"
+                        android:textColor="@color/black"/>
 
                     <RadioGroup
                         android:layout_margin="5dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="fill_horizontal"
-                            >
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/rdoMauTrang"
@@ -211,53 +146,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:textSize="20dp"
+                                android:textColor="@color/text"
                                 android:paddingLeft="10dp"
                                 android:text="Trắng" >
-
-
                             </RadioButton>
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="+0.000đ"
-                                android:textSize="20dp"
-                                android:fontFamily="@font/ct_font_medium"
-                                android:textColor="@color/black"
-                                android:textAlignment="textEnd"
-                                android:paddingRight="20dp"
-                                />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="fill_horizontal"
-                            >
-
                             <RadioButton
+                                android:layout_marginLeft="20dp"
                                 android:id="@+id/rdoMauDen"
                                 android:fontFamily="@font/ct_font_medium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
+                                android:textColor="@color/text"
                                 android:textSize="20dp"
                                 android:paddingLeft="10dp"
                                 android:text="Đen" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="+0.000đ"
-                                android:textSize="20dp"
-                                android:fontFamily="@font/ct_font_medium"
-                                android:textColor="@color/black"
-                                android:textAlignment="textEnd"
-                                android:paddingRight="20dp"
-                                />
-
-                        </LinearLayout>
 
                     </RadioGroup>
 
@@ -291,9 +194,9 @@
 
                             <ImageView
                                 android:id="@+id/btnSoLuongGiam"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_remove_2"
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@mipmap/minimize"
                                 />
 
                             <TextView
@@ -301,15 +204,16 @@
                                 style="@style/edt_Label"
                                 android:layout_width="40dp"
                                 android:textAlignment="center"
+                                android:layout_marginHorizontal="5dp"
                                 android:text="88"
-                                android:textColor="@color/red"
+                                android:textColor="@color/text"
                                 android:textStyle="bold" />
 
                             <ImageView
                                 android:id="@+id/btnSoLuongTang"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_add_circle"
+                                android:layout_width="20dp"
+                                android:layout_height="30dp"
+                                android:src="@mipmap/plus"
                                 />
 
                         </LinearLayout>
@@ -318,6 +222,24 @@
 
 
                 </LinearLayout>
+                <TextView
+                    style="@style/edt_Label"
+                    android:text="Mô tả:"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:layout_marginTop="5dp"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtChiTietMoTaSP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/ct_font_medium"
+                    android:text="Áo khoác gió nam cao cấp Hiddle được may từ chất liệu vải dù dày dặn 2 lớp có khả năng chống thấm nước vượt trội, độ bền cao, không xù lông hay phai màu ngay cả khi giặt máy. Giúp người mặc chống nắng, chống bụi, giữ ấm cơ thể trong thời tiết gió lạnh cực tốt. "
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
                 <TextView
                     style="@style/edt_Label"
@@ -398,23 +320,17 @@
             android:layout_marginBottom="5dp"
             >
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnChiTietAddToCart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/red"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button"
                 android:text="Thêm vào giỏ"
-                android:textSize="25dp"
-                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:editable="false"
-                android:focusable="false"
+
                 />
 
         </LinearLayout>

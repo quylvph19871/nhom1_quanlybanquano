@@ -15,8 +15,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/gray2"
+            android:layout_height="65dp"
+            android:background="@color/primary_key"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingTop="5dp"
@@ -24,21 +24,21 @@
 
             <ImageView
                 android:id="@+id/btnBackTKNV"
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
-                android:src="@drawable/ic_to_back" />
+                android:src="@mipmap/leftarrow"/>
 
             <TextView
                 style="@style/edt_Label"
                 android:layout_width="match_parent"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/ct_font_bold"
-                android:text="Thống Kê Nhân Viên"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/opensan"
+                android:textStyle="bold"
+                android:text="Thống kê nhân viên"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/text"
+                android:textSize="22dp"
                 />
 
         </LinearLayout>
@@ -57,27 +57,25 @@
                 <TextView
                     style="@style/edt_Label"
                     android:layout_marginLeft="3dp"
-                    android:fontFamily="@font/ct_font_bold"
                     android:text="STT"
-                    android:textColor="@color/red"
+                    android:textColor="@color/text"
                     android:textSize="23dp" />
 
                 <TextView
                     style="@style/edt_Label"
                     android:layout_marginLeft="10dp"
-                    android:layout_width="250dp"
-                    android:fontFamily="@font/ct_font_bold"
+                    android:layout_width="190dp"
                     android:text="Tên Nhân Viên"
-                    android:textColor="@color/red"
+                    android:textColor="@color/text"
                     android:textSize="23dp" />
 
                 <TextView
                     style="@style/edt_Label"
+                    android:layout_width="145dp"
                     android:layout_marginRight="10dp"
-                    android:fontFamily="@font/ct_font_bold"
-                    android:text="D.Số"
+                    android:text="Doanh số"
                     android:textAlignment="center"
-                    android:textColor="@color/red"
+                    android:textColor="@color/text"
                     android:textSize="23dp" />
 
             </LinearLayout>

@@ -3,21 +3,21 @@
     <item
         android:id="@+id/pageTrangChu"
         android:enabled="true"
-        android:icon="@drawable/home"
+        android:icon="@mipmap/home"
         android:title="Trang Chủ" />
     <item
         android:id="@+id/pageSanPham"
         android:enabled="true"
-        android:icon="@drawable/product"
+        android:icon="@mipmap/box"
         android:title="Sản Phẩm"/>
     <item
         android:id="@+id/pageBanHang"
         android:enabled="true"
-        android:icon="@drawable/store"
+        android:icon="@mipmap/shoppingcart"
         android:title="Giỏ Hàng"/>
     <item
         android:id="@+id/pageTaiKhoan"
         android:enabled="true"
-        android:icon="@drawable/account"
+        android:icon="@mipmap/profile"
         android:title="Tài Khoản"/>
 </menu>

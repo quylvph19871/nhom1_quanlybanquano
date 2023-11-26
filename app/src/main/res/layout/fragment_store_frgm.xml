@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/iconRefreshStore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@mipmap/refresh"
                 />
 
@@ -158,26 +158,17 @@
                     />
             </LinearLayout>
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnGioHangTT"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/red"
+                android:background="@drawable/button"
                 android:text="Thanh Toán"
                 android:textSize="22dp"
                 android:gravity="center"
                 android:layout_marginLeft="20dp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/ct_font_medium"
-                android:textStyle="bold"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:editable="false"
-                android:focusable="false"
+                android:textColor="@color/text"
                 />
 
 

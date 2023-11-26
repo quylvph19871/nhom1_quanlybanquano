@@ -27,7 +27,7 @@
         android:elevation="2dp"
         android:hint="Name:"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@mipmap/use">
+        app:startIconDrawable="@mipmap/profile">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

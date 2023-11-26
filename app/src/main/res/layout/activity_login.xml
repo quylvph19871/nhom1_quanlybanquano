@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D7DCF6"
     android:orientation="vertical"
+
     tools:context=".LoginActivity">
 
     <com.airbnb.lottie.LottieAnimationView
@@ -13,99 +14,83 @@
         android:layout_height="200dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
+
         app:lottie_rawRes="@raw/login" />
 
 
-
         <TextView
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/ct_font_bold"
-            android:text="APP BÁN HÀNG"
-            android:textColor="#E9A800"
-            android:textSize="35dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ct_font_bold"
+            android:fontFamily="@font/ct_font_medium"
             android:text="Đăng nhập"
             android:textColor="@color/white"
             android:textSize="35dp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="20dp"
+            />
 
-        <LinearLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/text_input"
+        android:elevation="2dp"
+        android:hint="Name:"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@mipmap/profile">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTenDangNhap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:background="@drawable/text_input" />
 
-            <TextView
-                style="@style/edt_Label"
-                android:text="Tên Đăng Nhập" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
-                android:id="@+id/edtTenDangNhap"
-                style="@style/edt_TextBox1"
-                android:layout_marginTop="5dp"
-                android:hint="Nhập tên đăng nhập" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/text_input"
+        android:elevation="2dp"
+        android:hint="Password:"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="password_toggle"
+        app:startIconDrawable="@mipmap/padlock">
 
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtMatKhau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
+            android:background="@drawable/text_input"
+            android:inputType="textPassword" />
 
-            <TextView
-                style="@style/edt_Label"
-                android:text="Mật Khẩu" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ct_edittext"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/edtMatKhau"
-                    style="@style/edt_TextBox1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Nhập mật khẩu"
-                    android:inputType="textPassword" />
-
-                <ImageView
-                    android:id="@+id/img_hidePassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/ic_visibility_off" />
-            </RelativeLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-        </LinearLayout>
 
         <CheckBox
             android:id="@+id/chkNhoMK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/ct_font_regular"
             android:text="Lưu Mật Khẩu"
             android:textAlignment="center"
+            android:layout_gravity="center"
             android:textColor="@color/white"
             android:textSize="18dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_gravity="center"
+            android:background="@drawable/button"
             android:id="@+id/btnDangNhap"
-            android:layout_width="wrap_content"
+            android:text="Đăng nhập"
+            android:layout_width="200dp"
             android:layout_height="45dp"
             android:layout_marginTop="5dp"
             android:src="@drawable/btn_dangnhap" />

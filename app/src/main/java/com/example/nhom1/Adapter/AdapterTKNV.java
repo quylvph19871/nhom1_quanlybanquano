@@ -64,10 +64,10 @@ public class AdapterTKNV extends RecyclerView.Adapter<AdapterTKNV.ViewHolder>{
             String outTongTien = String.format("%,.0f", doanhThu);
             if (outTongTien.length() > 4){
                 String subDoanhThu = outTongTien.substring(0, (outTongTien.length() - 4));
-                holder.txtTknvDoanhThu.setText(subDoanhThu + "K VNĐ");
+                holder.txtTknvDoanhThu.setText(subDoanhThu + "đ");
             }
             else {
-                holder.txtTknvDoanhThu.setText(outTongTien + "K VNĐ");
+                holder.txtTknvDoanhThu.setText(outTongTien + "đ");
             }
 
         }

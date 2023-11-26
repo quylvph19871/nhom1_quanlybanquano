@@ -3,10 +3,8 @@
     <style name="edt_Label" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">25dp</item>
-        <item name="android:textColor">@color/white</item>
-
-        <item name="android:fontFamily">@font/ct_font_medium</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/text</item>
 
     </style>
 

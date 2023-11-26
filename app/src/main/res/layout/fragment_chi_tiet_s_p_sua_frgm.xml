@@ -24,14 +24,7 @@
 
                 <ImageView
                     android:id="@+id/img_SP"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:src="@drawable/polo" />
-
-                <ImageView
-                    android:id="@+id/img_SP1"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:src="@drawable/polo" />
@@ -55,7 +48,6 @@
                 <TextView
                     android:id="@+id/txtCTSPSuaGiaSP"
                     style="@style/edt_Label"
-                    android:layout_marginLeft="20dp"
                     android:text="29.000đ"
                     android:textColor="@color/red"
                     android:textSize="20dp"
@@ -64,15 +56,14 @@
                 <TextView
                     android:id="@+id/txtCTSPSuaLoaiSP"
                     style="@style/edt_Label"
-                    android:layout_marginLeft="20dp"
                     android:text="Loại Sản phẩm: Áo"
-                    android:textColor="@color/red"
+                    android:textColor="@color/text"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
                     style="@style/edt_Label"
-                    android:text="Mô tả sản phẩm"
+                    android:text="Mô tả"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -84,7 +75,7 @@
                     android:layout_marginBottom="10dp"
                     android:text="màu xanh chất liệu cotton"
                     android:textColor="@color/black"
-                    android:textSize="15dp" />
+                    android:textSize="18dp" />
 
 
             </LinearLayout>
@@ -96,7 +87,7 @@
                 android:orientation="horizontal"
                 >
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnCTSPSuaSua"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -111,12 +102,10 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:editable="false"
-                    android:focusable="false"
                     android:layout_marginRight="15dp"
                     />
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnCTSPSuaXoa"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
@@ -131,8 +120,7 @@
                     android:paddingBottom="5dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:editable="false"
-                    android:focusable="false"
+
                     />
             </LinearLayout>
 

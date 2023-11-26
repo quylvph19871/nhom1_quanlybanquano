@@ -7,12 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
+    <color name="primary_key">#D7DCF6</color>
+    <color name="button">#99FFFF</color>
 
     <color name="green">#4CAF50</color>
-    <color name="text">#333333</color>
-    <color name="red">#B22830</color>
+    <color name="text">#505050</color>
+    <color name="red">#FF0000</color>
     <color name="gray">#6F6E6E</color>
     <color name="gray2">#CCCBCB</color>
 

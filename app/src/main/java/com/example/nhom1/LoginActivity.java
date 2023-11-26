@@ -1,6 +1,7 @@
 package com.example.nhom1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,14 +18,15 @@ import android.widget.Toast;
 
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Model.User;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
      DAOUser daoUser;
-    EditText edtUser, edtPassword;
-    ImageView btnLogin, img_hidePassword;
+    TextInputEditText edtUser, edtPassword;
+    AppCompatButton btnLogin;
     CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +36,22 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.edtMatKhau);
         checkBox = findViewById(R.id.chkNhoMK);
         btnLogin = findViewById(R.id.btnDangNhap);
-        img_hidePassword = findViewById(R.id.img_hidePassword);
+//        img_hidePassword = findViewById(R.id.img_hidePassword);
         daoUser = new DAOUser(this);
         edtPassword.getInputType();
         //sự kiện hide pass
-        img_hidePassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (edtPassword.getInputType() != InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-                    edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    img_hidePassword.setImageResource(R.drawable.ic_hide_on);
-                } else {
-                    edtPassword.setInputType(129);
-                    img_hidePassword.setImageResource(R.drawable.ic_visibility_off);
-                }
-            }
-        });
+//        img_hidePassword.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (edtPassword.getInputType() != InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+//                    edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+//                    img_hidePassword.setImageResource(R.drawable.ic_hide_on);
+//                } else {
+//                    edtPassword.setInputType(129);
+//                    img_hidePassword.setImageResource(R.drawable.ic_visibility_off);
+//                }
+//            }
+//        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

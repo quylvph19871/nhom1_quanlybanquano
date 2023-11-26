@@ -106,7 +106,7 @@ public class TKDoanhThuFrgm extends Fragment {
             AdapterTKDT adapterTKDT = new AdapterTKDT(getContext(), listHD);
             recycler_TKDT.setAdapter(adapterTKDT);
             double doanhThu = daoLuuHD.getAllDoanhThu(caseTK, maUserInput);
-            String fDoanhThu = String.format("%,.0f VNĐ", doanhThu);
+            String fDoanhThu = String.format("%,.0f đ", doanhThu);
             txtTongDoanhThu.setText(fDoanhThu);
         }
         else {

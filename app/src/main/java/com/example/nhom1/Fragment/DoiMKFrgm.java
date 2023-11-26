@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -33,7 +34,7 @@ import com.example.nhom1.R;
 public class DoiMKFrgm extends Fragment {
 
     EditText edOldPass, edNewPass, edConfirmPass;
-    EditText btnChange, btnCancel;
+    AppCompatButton btnChange, btnCancel;
     ImageView imgHide1, imgHide2, imgHide3;
     DAOUser daoUser;
     String username, password;

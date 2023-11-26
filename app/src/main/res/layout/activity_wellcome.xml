@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B0E2FF"
+    android:background="@color/primary_key"
     tools:context=".WellcomeActivity">
 
     <com.airbnb.lottie.LottieAnimationView

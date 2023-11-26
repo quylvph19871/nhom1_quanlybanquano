@@ -41,7 +41,7 @@ public class AdapterThongTinHD extends RecyclerView.Adapter<AdapterThongTinHD.Vi
         holder.txtHDSL.setText(luuHoaDon.getSoLuong() + "");
         double donGia = luuHoaDon.getDonGia();
         String outDonGia = String.format("%,.0f", donGia);
-        holder.txtHDDonGia.setText(outDonGia);
+        holder.txtHDDonGia.setText(outDonGia+ 'đ');
     }
 
     @Override

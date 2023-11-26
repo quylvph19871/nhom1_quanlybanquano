@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,7 +34,8 @@ import java.util.Date;
 public class SuaNVFrgm extends Fragment {
 
     User user;
-    EditText edtSuaTenNV, edtSuaMatKhau, edtSuaSDT, edtSuaNamSinh, btnHuySuaNV, btnAddSuaNV;
+    EditText edtSuaTenNV, edtSuaMatKhau, edtSuaSDT, edtSuaNamSinh;
+    AppCompatButton btnHuySuaNV, btnAddSuaNV;
     String tenSua, passSua, sdtSua, namSinhSua;
     DAOUser daoUser;
     ImageView btnBackSuaNV;

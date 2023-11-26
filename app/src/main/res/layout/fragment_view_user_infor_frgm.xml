@@ -6,8 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/gray2"
+        android:layout_height="65dp"
+        android:background="@color/primary_key"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingTop="5dp"
@@ -15,20 +15,21 @@
 
         <ImageView
             android:id="@+id/btnBackViewUserInfo"
-            android:layout_width="40dp"
+            android:layout_width="30dp"
             android:layout_height="40dp"
             android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_to_back" />
+            android:src="@mipmap/leftarrow" />
 
         <TextView
             style="@style/edt_Label"
             android:layout_width="match_parent"
             android:layout_marginRight="30dp"
-            android:fontFamily="@font/ct_font_bold"
-            android:text="Thông Tin Nhân Viên"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="25dp" />
+            android:fontFamily="@font/opensan"
+            android:textStyle="bold"
+            android:text="Thêm sản phẩm"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/text"
+            android:textSize="22dp" />
 
     </LinearLayout>
 
@@ -42,6 +43,7 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:src="@drawable/user"
 
             />
 
@@ -65,9 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Họ và tên"
-                android:textColor="@color/red"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
-                android:layout_marginLeft="15dp"
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -77,9 +78,9 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                 />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/info" />
 
                 <TextView
                     android:id="@+id/txtViewInfoFullName"
@@ -108,9 +109,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tên đăng nhập"
-                android:textColor="@color/red"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
-                android:layout_marginLeft="15dp"
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -120,10 +120,9 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    />
-
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/name" />
                 <TextView
                     android:id="@+id/txtViewInfoUserName"
                     style="@style/edt_Label"
@@ -150,9 +149,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chức vụ"
-                android:textColor="@color/red"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
-                android:layout_marginLeft="15dp"
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -162,9 +160,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                   />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ad"
+                    />
 
                 <TextView
                     android:id="@+id/txtViewInfoChucVu"
@@ -191,9 +190,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Số điện thoại"
-                android:textColor="@color/red"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
-                android:layout_marginLeft="15dp"
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -203,9 +201,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                   />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/phone" />
+
 
                 <TextView
                     android:id="@+id/txtViewInfoSDT"
@@ -233,9 +232,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Năm sinh"
-                android:textColor="@color/red"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
-                android:layout_marginLeft="15dp"
                 android:textSize="25dp" />
 
             <LinearLayout
@@ -245,9 +243,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                  />
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/year"
+                    />
 
                 <TextView
                     android:id="@+id/txtViewInfoNamSinh"
@@ -274,14 +273,13 @@
 
             <EditText
                 android:id="@+id/btnViewInfoSua"
-                android:layout_width="150dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/red"
-                android:text="Chỉnh Sửa"
+                android:background="@drawable/button"
+                android:text="Sửa"
                 android:gravity="center"
                 android:textSize="25dp"
-                android:textColor="@color/white"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
                 android:paddingTop="7dp"
@@ -295,14 +293,13 @@
 
             <EditText
                 android:id="@+id/btnViewInfoXoa"
-                android:layout_width="150dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/red"
+                android:background="@drawable/button"
                 android:text="Xóa NV"
                 android:gravity="center"
                 android:textSize="25dp"
-                android:textColor="@color/white"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
                 android:paddingTop="7dp"

@@ -64,21 +64,24 @@
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_marginRight="20dp"
             >
 
             <ImageView
                 android:id="@+id/add_sanpham"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_add_circle"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/plus"
                 android:layout_marginRight="10dp"/>
 
             <ImageView
                 android:id="@+id/info_sanpham"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_bacham" />
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/more" />
 
         </LinearLayout>
 

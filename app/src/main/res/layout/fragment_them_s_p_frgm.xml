@@ -13,38 +13,34 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         >
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="65dp"
+            android:background="@color/primary_key"
             android:gravity="center_vertical"
-            android:background="@color/gray2"
+            android:orientation="horizontal"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             >
 
             <ImageView
                 android:id="@+id/btnBackThemSP"
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_to_back"
                 android:layout_marginLeft="15dp"
+                android:src="@mipmap/leftarrow"
                 />
 
             <TextView
                 style="@style/edt_Label"
                 android:layout_width="match_parent"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:text="Thêm Sản Phẩm"
-                android:textSize="30dp"
-                android:fontFamily="@font/ct_font_bold"
                 android:layout_marginRight="30dp"
-
+                android:fontFamily="@font/opensan"
+                android:textStyle="bold"
+                android:text="Thêm sản phẩm"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/text"
+                android:textSize="22dp"
                 />
 
         </LinearLayout>
@@ -63,7 +59,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Tên Sản Phẩm"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/text"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -86,7 +82,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Giá Bán"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/text"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -111,7 +107,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Loại sản phẩm"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/text"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -134,7 +130,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Mô Tả"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/text"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -160,7 +156,7 @@
             <TextView
                 style="@style/edt_Label"
                 android:text="Ảnh sản phẩm"
-                android:textColor="@color/teal_200"
+                android:textColor="@color/text"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -192,12 +188,11 @@
                 android:id="@+id/btnHuySp"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/teal_200"
+                android:background="@drawable/button"
                 android:text="Hủy"
                 android:gravity="center"
-                android:textSize="25dp"
-                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
                 android:paddingTop="7dp"
@@ -213,12 +208,11 @@
                 android:id="@+id/btnAcceptSP"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bo_tron_edt"
-                android:backgroundTint="@color/teal_200"
+                android:background="@drawable/button"
                 android:text="Xác Nhận"
                 android:gravity="center"
-                android:textSize="25dp"
-                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textColor="@color/text"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
                 android:paddingTop="7dp"

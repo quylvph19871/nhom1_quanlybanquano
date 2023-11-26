@@ -4,6 +4,7 @@ package com.example.nhom1.Fragment;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -83,9 +84,6 @@ public class SuaSPFrgm extends Fragment {
         edtLoaiSP.setText(tenLoai);
         edUpdateMoTa.setText(sanPham.getMota());
         edUpdateAnh.setText(sanPham.getImage());
-//        byte[] productsImage = sanPham.getImage();
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(productsImage, 0, productsImage.length);
-//        imgUpdate.setImageBitmap(bitmap);
         // xử lý sự kiện thêm ảnh
 
 
@@ -94,7 +92,7 @@ public class SuaSPFrgm extends Fragment {
         btnBackSuaSP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loadFragment(new ChiTietSPSuaFrgm(sanPham));
+                loadFragment(new ChiTietSPSuaFrgm(sanPham));
             }
         });
 
@@ -115,6 +113,7 @@ public class SuaSPFrgm extends Fragment {
                 edUpdateMoTa.setText(sanPham.getMota());
                 edUpdateAnh.setText(sanPham.getImage());
                 Toast.makeText(getContext(), "Hủy!", Toast.LENGTH_SHORT).show();
+                loadFragment(new ChiTietSPSuaFrgm(sanPham));
             }
         });
 //        Set Data cho spnLoaiSP - AnhNQ

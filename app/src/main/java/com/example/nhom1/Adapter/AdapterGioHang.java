@@ -25,7 +25,6 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
     private ArrayList<GioHang> list;
     private Context context;
     DAOGioHang daoGioHang;
-    StoreFrgm storeFrgm;
 
     public AdapterGioHang(Context context, ArrayList<GioHang> list) {
         this.context = context;
@@ -92,7 +91,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+                StoreFrgm.txtGHTongTien.setText(outTongTien + "đ");
             }
         });
 
@@ -116,7 +115,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-              StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+              StoreFrgm.txtGHTongTien.setText(outTongTien + "đ");
             }
         });
         holder.edtGHSoLuong.getText().toString();

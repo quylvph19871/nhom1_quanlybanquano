@@ -1,6 +1,5 @@
 package com.example.nhom1.Fragment;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,11 +25,10 @@ import com.example.nhom1.R;
 
 
 public class Account_Fragment extends Fragment {
-    private LinearLayout userFrgmTaiKhoan, userFrgmDoiMK, userFrgmTKDoanhThu, userFrgmTKNhanVien, userFrgmThemSP, userFrgmThemLSP, userFrgmThemNhanVien, userFrgmDangXuat,userFrgmThanhToan;
+    private LinearLayout userFrgmTaiKhoan, userFrgmDoiMK, userFrgmTKDoanhThu, userFrgmTKNhanVien, userFrgmThemSP, userFrgmThemLSP, userFrgmThemNhanVien, userFrgmDangXuat;
     TextView txtUserName, txtChucVu;
     DAOUser daoUser;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,8 +42,6 @@ public class Account_Fragment extends Fragment {
         userFrgmThemLSP = view.findViewById(R.id.userFrgmThemLSP);
         userFrgmThemNhanVien = view.findViewById(R.id.userFrgmThemNhanVien);
         userFrgmDangXuat = view.findViewById(R.id.userFrgmDangXuat);
-        userFrgmThanhToan=view.findViewById(R.id.userFrgmThanhToan);
-
         txtUserName = view.findViewById(R.id.txtUserName);
         txtChucVu = view.findViewById(R.id.txtChucVu);
 
@@ -119,12 +115,7 @@ public class Account_Fragment extends Fragment {
             }
         });
 
-         userFrgmThanhToan.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 loadFragment(new QRFragment());
-             }
-         });
+
         userFrgmDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,10 +131,11 @@ public class Account_Fragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(getActivity(), LoginActivity.class);
-                        Toast.makeText(getContext(), "Đăng xuất!", Toast.LENGTH_SHORT).show();
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        Toast.makeText(getContext(), "Đăng xuất", Toast.LENGTH_SHORT).show();
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK );
                         startActivity(intent);
                         dialog.dismiss();
+
                     }
                 });
                 btnDialogHuy.setOnClickListener(new View.OnClickListener() {
