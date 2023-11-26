@@ -9,8 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +51,7 @@ public class StoreFrgm extends Fragment {
     double tongTien = 0;
     EditText edtGHTenKH;
     ImageView iconRefreshStore;
+    String ttoanCheck;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +67,28 @@ public class StoreFrgm extends Fragment {
         listGioHang = daoGioHang.getGioHang();
         txtGHTongTien = view.findViewById(R.id.txtGHTongTien);
         iconRefreshStore = view.findViewById(R.id.iconRefreshStore);
+        RadioButton rdo_Tien=view.findViewById(R.id.rdo_Tien);
+        RadioButton rdo_QR=view.findViewById(R.id.rdo_QR);
+        rdo_Tien.setChecked(true);
+        ttoanCheck="Tiền mặt";
+        rdo_Tien.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    rdo_QR.setChecked(false);
+                    ttoanCheck="Tiền mặt";
+                }
+            }
+        });
+        rdo_QR.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked){
+                    rdo_Tien.setChecked(false);
+                    ttoanCheck="QR Code";
+                }
+            }
+        });
         createData();
         iconRefreshStore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,7 +175,7 @@ public class StoreFrgm extends Fragment {
 
                         EditText btnHoaDonHuy = dialog.findViewById(R.id.btnHoaDonHuy);
                         EditText btnHoaDonXN = dialog.findViewById(R.id.btnHoaDonXN);
-
+                        TextView txtHDPhuongThucTT=dialog.findViewById(R.id.txtHDPhuongTTT);
                         TextView txtHDTenNV = dialog.findViewById(R.id.txtHDTenNV);
                         TextView txtHDTenKH = dialog.findViewById(R.id.txtHDTenKH);
                         TextView txtHDNgayBan = dialog.findViewById(R.id.txtHDNgayBan);
@@ -162,6 +187,7 @@ public class StoreFrgm extends Fragment {
                         txtHDTenNV.setText(fullName);
                         txtHDTenKH.setText(tenKH);
                         txtHDNgayBan.setText(ngayTaoHD);
+                        txtHDPhuongThucTT.setText(ttoanCheck);
                         String outTongTien = String.format("%,.0f", tongTien);
                         txtHDTongTien.setText(outTongTien + "Đ");
 
@@ -206,6 +232,7 @@ public class StoreFrgm extends Fragment {
                                                 hoaDonModel.getTenSP(),
                                                 hoaDonModel.getSoLuong(),
                                                 hoaDonModel.getSize(),
+                                                hoaDonModel.getPhuongThucTT(),
                                                 hoaDonModel.getDonGia(),
                                                 hoaDonModel.getThanhTien());
 //                                    Lưu hóa đơn vào bảng Lưu Hóa đơn

@@ -69,7 +69,7 @@ public class ChiTietSPFrgm extends Fragment {
 
         double donGiaGoc = sanPham.getPrice();
         rdoSizeNho.setChecked(true);
-        sizeCheck = "N";
+        sizeCheck = "M";
         donGia = 0;
 
         rdoSizeLon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -78,7 +78,7 @@ public class ChiTietSPFrgm extends Fragment {
                 if (isChecked) {
                     rdoSizeNho.setChecked(false);
                     rdoSizeVua.setChecked(false);
-                    sizeCheck = "L";
+                    sizeCheck = "XL";
 
                     donGia = 0;
 
@@ -95,8 +95,7 @@ public class ChiTietSPFrgm extends Fragment {
                 if (isChecked) {
                     rdoSizeLon.setChecked(false);
                     rdoSizeNho.setChecked(false);
-                    sizeCheck = "V";
-                    donGia = 10000;
+                    sizeCheck = "L";
                     donGia = 0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
@@ -111,7 +110,7 @@ public class ChiTietSPFrgm extends Fragment {
                 if (isChecked) {
                     rdoSizeLon.setChecked(false);
                     rdoSizeVua.setChecked(false);
-                    sizeCheck = "N";
+                    sizeCheck = "M";
                     donGia = 0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
@@ -122,14 +121,14 @@ public class ChiTietSPFrgm extends Fragment {
 
         //Mau
         rdoMauDen.setChecked(true);
-        mauCheck="N";
+        mauCheck="Den";
         donGia=0;
         rdoMauDen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     rdoMauTrang.setChecked(false);
-                    mauCheck="N";
+                    mauCheck="Den";
                     donGia=0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);
@@ -142,7 +141,7 @@ public class ChiTietSPFrgm extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     rdoMauDen.setChecked(false);
-                    mauCheck="N";
+                    mauCheck="Trang";
                     donGia=0;
                     tongTien = tinhTien(soLuong, donGia, donGiaGoc);
                     String mTinhTien = String.format("%,.0f", tongTien);

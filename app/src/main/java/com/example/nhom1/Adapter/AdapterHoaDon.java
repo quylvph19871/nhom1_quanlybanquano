@@ -39,7 +39,7 @@ public class AdapterHoaDon extends RecyclerView.Adapter<AdapterHoaDon.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         GioHang gioHang = list.get(position);
-        holder.txtHDTenSP.setText(gioHang.getTenSP() + "(" + gioHang.getSize() + ")");
+        holder.txtHDTenSP.setText(gioHang.getTenSP() + "(" + gioHang.getSize()+" , " + gioHang.getMau()+ ")");
         double donGia = gioHang.getDonGia();
         String outDonGia = String.format("%,.0f", donGia);
         holder.txtHDDonGia.setText(outDonGia);

@@ -97,7 +97,7 @@
                             >
 
                             <RadioButton
-                                android:id="@+id/rdoSizeLon"
+                                android:id="@+id/rdoSizeNho"
                                 android:fontFamily="@font/ct_font_medium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
@@ -158,7 +158,7 @@
                             >
 
                             <RadioButton
-                                android:id="@+id/rdoSizeNho"
+                                android:id="@+id/rdoSizeLon"
                                 android:fontFamily="@font/ct_font_medium"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"

@@ -35,6 +35,7 @@ public class DAOLuuHD {
         values.put("tenSP", luuHoaDon.getTenSP());
         values.put("soLuong", luuHoaDon.getSoLuong());
         values.put("size", luuHoaDon.getSize());
+        values.put("phuongThucTT",luuHoaDon.getPhuongThucTT());
         values.put("donGia", luuHoaDon.getDonGia());
         values.put("thanhTien", luuHoaDon.getThanhTien());
         long check = database.insert("LuuHoaDon", null, values);

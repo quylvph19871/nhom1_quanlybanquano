@@ -59,7 +59,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "MaHoaDon INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "MaUser INTEGER REFERENCES User(MaUser),\n" +
                 "TenKhachHang TEXT,\n" +
-                "NgayLapHD TEXT,\n" +
+                "NgayLapHD TEXT,\n" +"phuongThucTT TEXT,\n"+
                 "MaGioHang INTEGER\n" +
                 ");";
         db.execSQL(tableHoaDon);
@@ -83,7 +83,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "maSP INTEGER,\n" +
                 "tenSP TEXT,\n" +
                 "soLuong INTEGER,\n" +
-                "size TEXT,\n" +
+                "size TEXT,\n" +"phuongThucTT TEXT,\n"+
                 "donGia DOUBLE\n," +
                 "thanhTien DOUBLE\n" +
                 ");";

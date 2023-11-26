@@ -48,7 +48,8 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
 //        Set ảnh cho Items
 
         Picasso.get().load(gioHang.getImgSP()).into(holder.imgGHAnhSP);
-        holder.txtGHTenSP.setText(gioHang.getTenSP() + " - " + gioHang.getSize());
+        holder.txtGHTenSP.setText(gioHang.getTenSP());
+        holder.txtGHSize.setText(gioHang.getSize()+" - "+ gioHang.getMau());
         double donGia = gioHang.getDonGia();
         String outDonGia = String.format("%,.0f", donGia);
         holder.txtGHGia.setText(outDonGia + " VNĐ");
@@ -91,7 +92,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-//                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+                StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
 
@@ -115,7 +116,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                 notifyDataSetChanged();
                 double tongTien = daoGioHang.tongTienGiohang();
                 String outTongTien = String.format("%,.0f", tongTien);
-//               StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+              StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
             }
         });
         holder.edtGHSoLuong.getText().toString();
@@ -128,12 +129,13 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgGHAnhSP, btnHGTru, btnGHCong;
-        TextView txtGHTenSP, txtGHGia, edtGHSoLuong;
+        TextView txtGHTenSP, txtGHGia,txtGHSize, edtGHSoLuong;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgGHAnhSP = itemView.findViewById(R.id.imgGHAnhSP);
             txtGHTenSP = itemView.findViewById(R.id.txtGHTenSP);
+            txtGHSize=itemView.findViewById(R.id.txtGHSizeSP);
             txtGHGia = itemView.findViewById(R.id.txtGHGia);
             edtGHSoLuong = itemView.findViewById(R.id.edtGHSoLuong);
             btnHGTru = itemView.findViewById(R.id.btnHGTru);

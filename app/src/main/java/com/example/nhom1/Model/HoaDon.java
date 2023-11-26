@@ -11,6 +11,7 @@ public class HoaDon {
     String tenSP;
     int soLuong;
     String size;
+    String phuongThucTT;
     double donGia;
     double thanhTien;
 
@@ -21,7 +22,7 @@ public class HoaDon {
         this.maGiohang = maGiohang;
     }
 
-    public HoaDon(int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size, double donGia, double thanhTien) {
+    public HoaDon(int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size,String phuongThucTT, double donGia, double thanhTien) {
         this.maHoaDon = maHoaDon;
         this.maUser = maUser;
         this.tenUser = tenUser;
@@ -31,8 +32,17 @@ public class HoaDon {
         this.tenSP = tenSP;
         this.soLuong = soLuong;
         this.size = size;
+        this.phuongThucTT=phuongThucTT;
         this.donGia = donGia;
         this.thanhTien = thanhTien;
+    }
+
+    public String getPhuongThucTT() {
+        return phuongThucTT;
+    }
+
+    public void setPhuongThucTT(String phuongThucTT) {
+        this.phuongThucTT = phuongThucTT;
     }
 
     public int getMaSP() {

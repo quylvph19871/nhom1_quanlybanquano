@@ -145,7 +145,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Phương thức thanh toán:"
+                android:fontFamily="@font/ct_font_medium"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/txtHDPhuongTTT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiền mặt"
+                android:fontFamily="@font/ct_font_bold"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"

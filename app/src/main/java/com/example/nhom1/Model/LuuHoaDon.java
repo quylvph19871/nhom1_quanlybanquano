@@ -15,10 +15,11 @@ public class LuuHoaDon {
     String tenSP;
     int soLuong;
     String size;
+    String phuongThucTT;
     double donGia;
     double thanhTien;
 
-    public LuuHoaDon(int maLuu, int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size, double donGia, double thanhTien) {
+    public LuuHoaDon(int maLuu, int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size,String phuongThucTT, double donGia, double thanhTien) {
         this.maLuu = maLuu;
         this.maHoaDon = maHoaDon;
         this.maUser = maUser;
@@ -29,6 +30,7 @@ public class LuuHoaDon {
         this.tenSP = tenSP;
         this.soLuong = soLuong;
         this.size = size;
+        this.phuongThucTT=phuongThucTT;
         this.donGia = donGia;
         this.thanhTien = thanhTien;
     }
@@ -40,7 +42,7 @@ public class LuuHoaDon {
         this.thanhTien = thanhTien;
     }
 
-    public LuuHoaDon(int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size, double donGia, double thanhTien) {
+    public LuuHoaDon(int maHoaDon, int maUser, String tenUser, String tenKhachHang, String ngayLapHD, int maSP, String tenSP, int soLuong, String size,String phuongThucTT, double donGia, double thanhTien) {
         this.maHoaDon = maHoaDon;
         this.maUser = maUser;
         this.tenUser = tenUser;
@@ -50,6 +52,7 @@ public class LuuHoaDon {
         this.tenSP = tenSP;
         this.soLuong = soLuong;
         this.size = size;
+        this.phuongThucTT=phuongThucTT;
         this.donGia = donGia;
         this.thanhTien = thanhTien;
     }
@@ -74,6 +77,14 @@ public class LuuHoaDon {
         this.soLuong = soLuong;
         this.size = size;
         this.donGia = donGia;
+    }
+
+    public String getPhuongThucTT() {
+        return phuongThucTT;
+    }
+
+    public void setPhuongThucTT(String phuongThucTT) {
+        this.phuongThucTT = phuongThucTT;
     }
 
     public int getMaLuu() {

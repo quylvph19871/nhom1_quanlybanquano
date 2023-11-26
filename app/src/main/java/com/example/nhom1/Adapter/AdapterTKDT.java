@@ -73,13 +73,14 @@ public class AdapterTKDT extends RecyclerView.Adapter<AdapterTKDT.ViewHolder>{
                 TextView txtHDNgayBan = dialog.findViewById(R.id.txtHDNgayBan);
                 RecyclerView recycle_hoaDon = dialog.findViewById(R.id.recycle_hoaDon);
                 TextView txtHDTongTien = dialog.findViewById(R.id.txtHDTongTien);
-
+                TextView txtHDPhuongThucTT=dialog.findViewById(R.id.txtHDPhuongTTT);
                 ArrayList<LuuHoaDon> listHoaDon2 = daoLuuHD.getHDofMaHD(hoaDon.getMaHoaDon());
 
                 txtHoaDonTitle.setText("Chi tiết hóa đơn");
                 txtHDTenNV.setText(listHoaDon2.get(0).getTenUser());
                 txtHDTenKH.setText(listHoaDon2.get(0).getTenKhachHang());
                 txtHDNgayBan.setText(listHoaDon2.get(0).getNgayLapHD());
+                txtHDPhuongThucTT.setText(listHoaDon2.get(0).getPhuongThucTT());
 
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(dialog.getContext());
                 recycle_hoaDon.setLayoutManager(linearLayoutManager);

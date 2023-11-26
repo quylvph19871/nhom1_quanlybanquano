@@ -50,7 +50,7 @@ public class DAOHoaDon {
                 "SanPham.MaSanPham, " +
                 "SanPham.tensanpham, " +
                 "GioHang.soluong, " +
-                "GioHang.size, " +
+                "GioHang.size, " +"HoaDon.phuongThucTT,"+
                 "GioHang.dongia, " +
                 "(GioHang.soluong * GioHang.dongia) as ThanhTien FROM HoaDon, GioHang, SanPham, User WHERE HoaDon.magiohang = GioHang.MaGioHang and GioHang.masanpham = SanPham.MaSanPham and HoaDon.mauser = User.MaUser", null);
         if (cursor.getCount() != 0){
@@ -65,9 +65,10 @@ public class DAOHoaDon {
                 String tenSP = cursor.getString(6);
                 int soLuong = cursor.getInt(7);
                 String size = cursor.getString(8);
-                double donGia = cursor.getDouble(9);
-                double thanhTien = cursor.getDouble(10);
-                list.add(new HoaDon(maHoaDon, maUser, userName, tenKH, ngayLapHD,maSP, tenSP, soLuong, size, donGia, thanhTien));
+                String phuongThucTT=cursor.getString(9);
+                double donGia = cursor.getDouble(10);
+                double thanhTien = cursor.getDouble(11);
+                list.add(new HoaDon(maHoaDon, maUser, userName, tenKH, ngayLapHD,maSP, tenSP, soLuong, size,phuongThucTT, donGia, thanhTien));
             }   while (cursor.moveToNext());
         }
         return list;
