@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nhom1.DAOModel.DAOUser;
@@ -24,9 +25,10 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
-     DAOUser daoUser;
+    DAOUser daoUser;
     TextInputEditText edtUser, edtPassword;
     AppCompatButton btnLogin;
+    TextView btndangKy;
     CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 //        img_hidePassword = findViewById(R.id.img_hidePassword);
         daoUser = new DAOUser(this);
         edtPassword.getInputType();
+        btndangKy = findViewById(R.id.btndangKi);
         //sự kiện hide pass
 //        img_hidePassword.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -52,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+        btndangKy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+            }
+        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +110,8 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword.setText(pass);
         checkBox.setChecked(rem);
     }
+
+
     public void remmemberUser(int maUser, String u, String p, boolean status) {
         SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
@@ -114,6 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         }
         editor.commit();
     }
+
 
     private void closeKeyboard() {
         View view = this.getCurrentFocus();
