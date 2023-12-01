@@ -108,17 +108,7 @@
 
 
                 </RadioButton>
-                <RadioButton
-                    android:id="@+id/rdo_QR"
-                    android:fontFamily="@font/ct_font_medium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textSize="20dp"
-                    android:paddingLeft="10dp"
-                    android:text="QR code" >
 
-
-                </RadioButton>
 
             </RadioGroup>
 

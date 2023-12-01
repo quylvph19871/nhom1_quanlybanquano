@@ -110,17 +110,7 @@ public class FragmentProduct extends Fragment {
                             adapterSanPham.notifyDataSetChanged();
 
                             txtSearch.setVisibility(View.GONE);
-                            icDeleteSearch.setVisibility(View.VISIBLE);
-                            icDeleteSearch.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    edt_search.setText(null);
-                                    icDeleteSearch.setVisibility(View.GONE);
-                                    recyclerProduct.setVisibility(View.VISIBLE);
-                                    txtNotifi3.setVisibility(View.GONE);
-                                    createData(0);
-                                }
-                            });
+
                         }
                     });
                 }
@@ -132,12 +122,11 @@ public class FragmentProduct extends Fragment {
             }
         });
 
+
         adapterSanPham = new AdapterSanPham(getActivity(), list);
         adapterSanPham.notifyDataSetChanged();
         rdoCheck = 0;
         createData(0);
-
-//        Set sự kiện OnClick Filter
         filterProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +137,6 @@ public class FragmentProduct extends Fragment {
 
                 RadioButton rdoSPAll = dialog.findViewById(R.id.rdoSPAll);
                 RadioButton rdoSPGia = dialog.findViewById(R.id.rdoSPGia);
-                RadioButton rdoSPTL = dialog.findViewById(R.id.rdoSPTL);
 
                 switch (rdoCheck) {
                     case 0: {
@@ -159,9 +147,7 @@ public class FragmentProduct extends Fragment {
                         rdoSPGia.setChecked(true);
                     }
                     break;
-                    case 2: {
-                        rdoSPTL.setChecked(true);
-                    }
+
                 }
 
                 rdoSPAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -186,16 +172,7 @@ public class FragmentProduct extends Fragment {
                     }
                 });
 
-                rdoSPTL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        if (isChecked) {
-                            rdoCheck = 2;
-                            createData(2);
-                            dialog.dismiss();
-                        }
-                    }
-                });
+
 
                 dialog.show();
             }

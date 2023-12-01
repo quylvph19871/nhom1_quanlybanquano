@@ -71,7 +71,6 @@ public class ChiTietSPFrgm extends Fragment {
         double donGiaGoc = sanPham.getPrice();
         rdoSizeNho.setChecked(true);
         sizeCheck = "M";
-        donGia = 0;
 
         rdoSizeLon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -80,12 +79,6 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeNho.setChecked(false);
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "XL";
-
-//                    donGia = 0;
-//
-//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-//                    String mTinhTien = String.format("%,.0f", tongTien);
-//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
                 }
             }
         });
@@ -97,10 +90,7 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeLon.setChecked(false);
                     rdoSizeNho.setChecked(false);
                     sizeCheck = "L";
-                   // donGia = 0;
-//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-//                    String mTinhTien = String.format("%,.0f", tongTien);
-//                    txtChiTietTongTien.setText(mTinhTien + " đ");
+
                 }
             }
         });
@@ -112,10 +102,7 @@ public class ChiTietSPFrgm extends Fragment {
                     rdoSizeLon.setChecked(false);
                     rdoSizeVua.setChecked(false);
                     sizeCheck = "M";
-//                    donGia = 0;
-//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-//                    String mTinhTien = String.format("%,.0f", tongTien);
-//                    txtChiTietTongTien.setText(mTinhTien + "đ");
+
                 }
             }
         });
@@ -130,10 +117,7 @@ public class ChiTietSPFrgm extends Fragment {
                 if (isChecked){
                     rdoMauTrang.setChecked(false);
                     mauCheck="Đen";
-//                    donGia=0;
-//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-//                    String mTinhTien = String.format("%,.0f", tongTien);
-//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+
                 }
             }
         });
@@ -143,10 +127,8 @@ public class ChiTietSPFrgm extends Fragment {
                 if (isChecked){
                     rdoMauDen.setChecked(false);
                     mauCheck="Trắng";
-//                    donGia=0;
-//                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-//                    String mTinhTien = String.format("%,.0f", tongTien);
-//                    txtChiTietTongTien.setText(mTinhTien + " VNĐ");
+
+
                 }
             }
         });

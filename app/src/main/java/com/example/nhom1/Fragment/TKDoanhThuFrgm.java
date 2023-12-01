@@ -229,8 +229,7 @@ public class TKDoanhThuFrgm extends Fragment {
                 datePickerDialog.show();
             }
         });
-
-//        Sự kiện Click button Thống kê
+        // sự kiện nút button Thống kê
         btnThongKe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

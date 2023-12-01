@@ -100,22 +100,25 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
             @Override
             public void onClick(View v) {
                 int soLuong = gioHang.getSoLuong();
-                soLuong++;
-                gioHang.setSoLuong(soLuong);
-                boolean kiemtra = daoGioHang.updateGioHang(gioHang);
-                if (kiemtra){
-                    list.clear();
-                    list = daoGioHang.getGioHang();
+                if (soLuong<50) {
+                    soLuong++;
+                    gioHang.setSoLuong(soLuong);
+                    boolean kiemtra = daoGioHang.updateGioHang(gioHang);
+                    if (kiemtra) {
+                        list.clear();
+                        list = daoGioHang.getGioHang();
+                        notifyDataSetChanged();
+                    } else {
+                        Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
+                    }
+                    holder.edtGHSoLuong.setText(soLuong + "");
                     notifyDataSetChanged();
+                    double tongTien = daoGioHang.tongTienGiohang();
+                    String outTongTien = String.format("%,.0f", tongTien);
+                    StoreFrgm.txtGHTongTien.setText(outTongTien + "đ");
+                }else{
+                    Toast.makeText(context, "Vượt quá số lượng", Toast.LENGTH_SHORT).show();
                 }
-                else {
-                    Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
-                }
-                holder.edtGHSoLuong.setText(soLuong + "");
-                notifyDataSetChanged();
-                double tongTien = daoGioHang.tongTienGiohang();
-                String outTongTien = String.format("%,.0f", tongTien);
-              StoreFrgm.txtGHTongTien.setText(outTongTien + "đ");
             }
         });
         holder.edtGHSoLuong.getText().toString();

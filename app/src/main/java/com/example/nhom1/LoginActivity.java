@@ -39,19 +39,7 @@ public class LoginActivity extends AppCompatActivity {
 //        img_hidePassword = findViewById(R.id.img_hidePassword);
         daoUser = new DAOUser(this);
         edtPassword.getInputType();
-        //sự kiện hide pass
-//        img_hidePassword.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (edtPassword.getInputType() != InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-//                    edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-//                    img_hidePassword.setImageResource(R.drawable.ic_hide_on);
-//                } else {
-//                    edtPassword.setInputType(129);
-//                    img_hidePassword.setImageResource(R.drawable.ic_visibility_off);
-//                }
-//            }
-//        });
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

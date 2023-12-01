@@ -27,7 +27,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
+public class
+ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
 
     SanPham sanPham;
     DAOSanPham dao;

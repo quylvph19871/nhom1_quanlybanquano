@@ -80,7 +80,6 @@ public class AdapterTKDT extends RecyclerView.Adapter<AdapterTKDT.ViewHolder>{
                 txtHDTenNV.setText(listHoaDon2.get(0).getTenUser());
                 txtHDTenKH.setText(listHoaDon2.get(0).getTenKhachHang());
                 txtHDNgayBan.setText(listHoaDon2.get(0).getNgayLapHD());
-                txtHDPhuongThucTT.setText(listHoaDon2.get(0).getPhuongThucTT());
 
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(dialog.getContext());
                 recycle_hoaDon.setLayoutManager(linearLayoutManager);

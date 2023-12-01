@@ -80,7 +80,7 @@ public class Account_Fragment extends Fragment {
         userFrgmTKDoanhThu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadFragment(new TKDoanhThuFrgm());
+              loadFragment(new TKDoanhThuFrgm());
 
             }
         });

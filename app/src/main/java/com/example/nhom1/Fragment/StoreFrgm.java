@@ -69,27 +69,17 @@ public class StoreFrgm extends Fragment {
         txtGHTongTien = view.findViewById(R.id.txtGHTongTien);
         iconRefreshStore = view.findViewById(R.id.iconRefreshStore);
         RadioButton rdo_Tien=view.findViewById(R.id.rdo_Tien);
-        RadioButton rdo_QR=view.findViewById(R.id.rdo_QR);
         rdo_Tien.setChecked(true);
         ttoanCheck="Tiền mặt";
         rdo_Tien.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked){
-                    rdo_QR.setChecked(false);
                     ttoanCheck="Tiền mặt";
                 }
             }
         });
-        rdo_QR.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked){
-                    rdo_Tien.setChecked(false);
-                    ttoanCheck="QR Code";
-                }
-            }
-        });
+
         createData();
         iconRefreshStore.setOnClickListener(new View.OnClickListener() {
             @Override

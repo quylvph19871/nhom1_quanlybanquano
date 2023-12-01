@@ -81,7 +81,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
             @Override
             public void onClick(View v) {
 //                Khởi tạo Model
-                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "N", "Den",sanPham.getPrice());
+                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "M", "Đen",sanPham.getPrice());
 //                Check Valid SP (SanPham.ID, Size)
                 ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
 //                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();
