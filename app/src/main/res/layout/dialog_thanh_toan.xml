@@ -176,7 +176,6 @@
                 android:layout_height="wrap_content"
                 android:text="Tiền mặt"
                 android:fontFamily="@font/ct_font_bold"
-                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </LinearLayout>

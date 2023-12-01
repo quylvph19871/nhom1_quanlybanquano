@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.edtMatKhau);
         checkBox = findViewById(R.id.chkNhoMK);
         btnLogin = findViewById(R.id.btnDangNhap);
-//        img_hidePassword = findViewById(R.id.img_hidePassword);
         daoUser = new DAOUser(this);
         edtPassword.getInputType();
 
