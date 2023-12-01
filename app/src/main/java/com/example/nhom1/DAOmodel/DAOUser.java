@@ -13,11 +13,15 @@ import java.util.ArrayList;
 
 public class DAOUser {
     private SQLiteDatabase database;
+    private DbHelper dbHelper;
+    private Context context;
+
 
     public DAOUser(Context context) {
-        DbHelper dbHelper = new DbHelper(context);
+        dbHelper = new DbHelper(context);
         database = dbHelper.getReadableDatabase();
         database = dbHelper.getWritableDatabase();
+        this.context = context;
     }
 
 //    Add User
@@ -117,8 +121,20 @@ public class DAOUser {
             return true;
         }
     }
+    public boolean checkUser(String username, String SDT, String password) {
+        DbHelper dbHelper = new DbHelper(context);
+        database = dbHelper.getWritableDatabase();
 
-    public ArrayList<User> getData(String sql, String... selectionAGrs) {
+        String sql = "SELECT * FROM users WHERE username = ? AND SDT = ? AND password = ?";
+        Cursor cursor = database.rawQuery(sql, new String[]{username, SDT, password});
+        boolean isUserExist = cursor.getCount() > 0;
+        cursor.close();
+        database.close();
+
+        return isUserExist;
+    }
+
+        public ArrayList<User> getData(String sql, String... selectionAGrs) {
         ArrayList<User> list = new ArrayList<>();
         Cursor cursor = database.rawQuery(sql, selectionAGrs);
         if (cursor.getCount() != 0) {

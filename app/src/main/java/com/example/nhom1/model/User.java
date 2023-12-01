@@ -28,6 +28,11 @@ public class User {
         this.SDT = SDT;
         NamSinh = namSinh;
     }
+    public User(String username  , String SDT, String password) {
+        this.username = username;
+        this.SDT = SDT;
+        this.password = password;
+    }
 
     public User(int ID_User, String fullName, String username, String password, int maChucVu, String tenChucVu, String SDT, int namSinh) {
         this.ID_User = ID_User;
