@@ -36,11 +36,15 @@ import java.util.ArrayList;
 
 public class SuaSPFrgm extends Fragment {
 
-    EditText edUpdateTenSP, edUpdateGiaBan, edUpdateMoTa, btnUpdate,edUpdateAnh;
+    EditText edUpdateTenSP, edUpdateGiaBan, edUpdateMoTa, btnUpdate,edUpdateAnh,edUpdateSoLuongSP;
     AutoCompleteTextView edtLoaiSP;
     SanPham sanPham;
     DAOSanPham daoSanPham;
-    String strTenSP, strMota, strLoaiSP,strAnhSP;
+    String strTenSP;
+    String strMota;
+    String strLoaiSP;
+    String strAnhSP;
+    String strSoLuongSP;
     double strGiaban;
     ArrayList<SanPham> arrayList;
     AdapterSanPham adapter = null;
@@ -65,6 +69,7 @@ public class SuaSPFrgm extends Fragment {
         edUpdateMoTa = view.findViewById(R.id.update_moTa);
         edUpdateAnh=view.findViewById(R.id.update_anh);
         edtLoaiSP = view.findViewById(R.id.edUpdateLSP);
+        edUpdateSoLuongSP=view.findViewById(R.id.update_soLuongSP);
         btnUpdate = view.findViewById(R.id.btnUpdateSp);
         daoSanPham = new DAOSanPham(getContext());
         arrayList = new ArrayList<>();
@@ -82,6 +87,7 @@ public class SuaSPFrgm extends Fragment {
             }
         }
         edtLoaiSP.setText(tenLoai);
+        edUpdateSoLuongSP.setText(sanPham.getSoLuongSP()+"");
         edUpdateMoTa.setText(sanPham.getMota());
         edUpdateAnh.setText(sanPham.getImage());
         // xử lý sự kiện thêm ảnh
@@ -111,12 +117,13 @@ public class SuaSPFrgm extends Fragment {
                 }
                 edtLoaiSP.setText(tenLoai);
                 edUpdateMoTa.setText(sanPham.getMota());
+                edUpdateSoLuongSP.setText(sanPham.getSoLuongSP()+"");
                 edUpdateAnh.setText(sanPham.getImage());
                 Toast.makeText(getContext(), "Hủy!", Toast.LENGTH_SHORT).show();
                 loadFragment(new ChiTietSPSuaFrgm(sanPham));
             }
         });
-//        Set Data cho spnLoaiSP - AnhNQ
+//        Set Data cho spnLoaiSP
         ArrayList<TheLoai> listTheLoai = daoSanPham.getDSLSP();
         ArrayList<String> listTenTL = new ArrayList<>();
         ArrayList<Integer> listMaTL = new ArrayList<>();
@@ -144,6 +151,7 @@ public class SuaSPFrgm extends Fragment {
                 strMota = edUpdateMoTa.getText().toString();
                 strLoaiSP = edtLoaiSP.getText().toString();
                 strAnhSP=edUpdateAnh.getText().toString();
+                strSoLuongSP=edUpdateSoLuongSP.getText().toString()+"";
 
                 checkTL = false;
                 index = 0;
@@ -182,7 +190,7 @@ public class SuaSPFrgm extends Fragment {
                         public void onClick(View v) {
                             if (checkEdt()) {
                                 maLoai = listMaTL.get(index);
-                                daoSanPham.updateSanPham(strAnhSP, strTenSP, strGiaban, maLoai, strMota, sanPham.getId());
+                                daoSanPham.updateSanPham(strAnhSP, strTenSP, strGiaban, maLoai, strMota, sanPham.getId(), Integer.parseInt(strSoLuongSP));
                                 Toast.makeText(getActivity(), "Sửa thành công", Toast.LENGTH_SHORT).show();
                                 loadFragment(new FragmentProduct());
                                 resetEdt();
@@ -201,9 +209,6 @@ public class SuaSPFrgm extends Fragment {
         return view;
     }
 
-    //Cấp quyền lấy ảnh
-
-    Bitmap imgChose = null;
 
 
     //replaceFragment
@@ -234,7 +239,11 @@ public class SuaSPFrgm extends Fragment {
             edtLoaiSP.setHintTextColor(Color.RED);
             checkAdd = false;
         }
-
+        if (edUpdateSoLuongSP.getText().toString().isEmpty()) {
+            edUpdateSoLuongSP.setError("Vui lòng nhập!");
+            edUpdateSoLuongSP.setHintTextColor(Color.RED);
+            checkAdd = false;
+        }
         if (strMota.isEmpty()) {
             edUpdateMoTa.setError("Vui lòng nhập!");
             edUpdateMoTa.setHintTextColor(Color.RED);
@@ -254,6 +263,8 @@ public class SuaSPFrgm extends Fragment {
         edUpdateTenSP.setHintTextColor(Color.BLACK);
         edUpdateGiaBan.setText("");
         edUpdateGiaBan.setHintTextColor(Color.BLACK);
+        edUpdateSoLuongSP.setText("");
+        edUpdateSoLuongSP.setHintTextColor(Color.BLACK);
         edUpdateMoTa.setText("");
         edUpdateMoTa.setHintTextColor(Color.BLACK);
         edUpdateAnh.setText("");

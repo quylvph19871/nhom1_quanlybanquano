@@ -34,12 +34,12 @@ import java.util.ArrayList;
 
 public class ThemSPFrgm extends Fragment {
 
-    private EditText edName, edPrice, edMoTa, btnAddSP, btnHuySP,edImage;
+    private EditText edName, edPrice, edMoTa, btnAddSP, btnHuySP,edImage,edSoLuongSP;
     AutoCompleteTextView edtLoaiSP;
     private DAOSanPham daoSanPham;
 
 
-    String strTenSP, strGiaban, strLoaiSP, strMota,strImage;
+    String strTenSP, strGiaban, strLoaiSP, strMota,strImage,strSoLuongSP;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -53,6 +53,7 @@ public class ThemSPFrgm extends Fragment {
         edImage=view.findViewById(R.id.edImageSP);
         edName = view.findViewById(R.id.edNameSP);
         edPrice = view.findViewById(R.id.edPrice);
+        edSoLuongSP=view.findViewById(R.id.edSoLuongSP);
         edMoTa = view.findViewById(R.id.edMoTa);
         edtLoaiSP = view.findViewById(R.id.edtLoaiSP);
         btnAddSP = view.findViewById(R.id.btnAcceptSP);
@@ -94,6 +95,8 @@ public class ThemSPFrgm extends Fragment {
                 strTenSP = edName.getText().toString();
                 strGiaban = edPrice.getText().toString();
                 strMota = edMoTa.getText().toString();
+                strSoLuongSP=edSoLuongSP.getText().toString();
+
                 strLoaiSP = edtLoaiSP.getText().toString();
                 boolean checkTL = false;
 
@@ -115,7 +118,7 @@ public class ThemSPFrgm extends Fragment {
 
                 if (checkEdt()) {
                     if (checkTL){
-                        daoSanPham.insertData(strImage, strTenSP, Double.parseDouble(strGiaban), maLSP, strMota);
+                        daoSanPham.insertData(strImage, strTenSP, Double.parseDouble(strGiaban), maLSP, strMota,Integer.parseInt(strSoLuongSP));
                         Toast.makeText(getActivity(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                         resetEdt();
                     }
@@ -161,6 +164,8 @@ public class ThemSPFrgm extends Fragment {
         edtLoaiSP.setHintTextColor(Color.BLACK);
         edMoTa.setText("");
         edMoTa.setHintTextColor(Color.BLACK);
+        edSoLuongSP.setText("");
+        edSoLuongSP.setHintTextColor(Color.BLACK);
     }
 
     //    Check Form
@@ -184,7 +189,11 @@ public class ThemSPFrgm extends Fragment {
             edtLoaiSP.setHintTextColor(Color.RED);
             checkAdd = false;
         }
-
+        if (strMota.isEmpty()) {
+            edMoTa.setError("Vui lòng nhập!");
+            edMoTa.setHintTextColor(Color.RED);
+            checkAdd = false;
+        }
         if (strMota.isEmpty()) {
             edMoTa.setError("Vui lòng nhập!");
             edMoTa.setHintTextColor(Color.RED);

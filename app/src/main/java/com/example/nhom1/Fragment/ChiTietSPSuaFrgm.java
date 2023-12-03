@@ -1,5 +1,6 @@
 package com.example.nhom1.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 
 import android.graphics.Color;
@@ -38,7 +39,7 @@ ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
     public ChiTietSPSuaFrgm(SanPham sanPham) {
         this.sanPham = sanPham;
     }
-
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
         TextView txtCTSPSuaGiaSP = view.findViewById(R.id.txtCTSPSuaGiaSP);
         TextView txtCTSPSuaLoaiSP = view.findViewById(R.id.txtCTSPSuaLoaiSP);
         TextView txtCTSPSuaMoTaSP = view.findViewById(R.id.txtCTSPSuaMoTaSP);
+        TextView txtCTSPSuaSluongSP = view.findViewById(R.id.txtCTSPSoLuongSP);
         AppCompatButton btnCTSPSuaSua = view.findViewById(R.id.btnCTSPSuaSua);
         AppCompatButton btnCTSPSuaXoa = view.findViewById(R.id.btnCTSPSuaXoa);
         ImageView img1 = view.findViewById(R.id.img_SP);
@@ -67,7 +69,7 @@ ChiTietSPSuaFrgm extends Fragment implements View.OnClickListener {
         txtCTSPSuaLoaiSP.setText("Loại sản phẩm: " + tenLSP);
         txtCTSPSuaMoTaSP.setText(sanPham.getMota());
 
-
+        txtCTSPSuaSluongSP.setText("Số lượng: "+sanPham.getSoLuongSP()+"");
 
         Picasso.get().load(sanPham.getImage()).into(img1);
 

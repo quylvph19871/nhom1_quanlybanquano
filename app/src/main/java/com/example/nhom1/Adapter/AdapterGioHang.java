@@ -2,6 +2,7 @@ package com.example.nhom1.Adapter;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nhom1.DAOModel.DAOGioHang;
+import com.example.nhom1.DAOModel.DAOSanPham;
 import com.example.nhom1.Fragment.StoreFrgm;
 import com.example.nhom1.Model.GioHang;
+import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.R;
 import com.squareup.picasso.Picasso;
 
@@ -25,6 +28,7 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
     private ArrayList<GioHang> list;
     private Context context;
     DAOGioHang daoGioHang;
+    SanPham sanPham=new SanPham();
 
     public AdapterGioHang(Context context, ArrayList<GioHang> list) {
         this.context = context;
@@ -100,7 +104,8 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
             @Override
             public void onClick(View v) {
                 int soLuong = gioHang.getSoLuong();
-                if (soLuong<50) {
+
+                if (soLuong < 50) {
                     soLuong++;
                     gioHang.setSoLuong(soLuong);
                     boolean kiemtra = daoGioHang.updateGioHang(gioHang);
@@ -111,13 +116,13 @@ public class AdapterGioHang extends RecyclerView.Adapter<AdapterGioHang.ViewHold
                     } else {
                         Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
                     }
-                    holder.edtGHSoLuong.setText(soLuong + "");
+                    holder.edtGHSoLuong.setText(String.valueOf(soLuong));
                     notifyDataSetChanged();
                     double tongTien = daoGioHang.tongTienGiohang();
                     String outTongTien = String.format("%,.0f", tongTien);
-                    StoreFrgm.txtGHTongTien.setText(outTongTien + "đ");
-                }else{
-                    Toast.makeText(context, "Vượt quá số lượng", Toast.LENGTH_SHORT).show();
+                    StoreFrgm.txtGHTongTien.setText(outTongTien + " VNĐ");
+                } else {
+                    Toast.makeText(context, "Số lượng đã vượt quá giới hạn!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

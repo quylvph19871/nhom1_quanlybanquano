@@ -157,6 +157,7 @@ public class ChiTietSPFrgm extends Fragment {
         btnSoLuongTang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 soLuong++;
                 if (soLuong < 10){
                     txtChiTietSL.setText("0" + soLuong);

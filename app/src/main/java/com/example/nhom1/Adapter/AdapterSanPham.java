@@ -70,46 +70,64 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
 
 //        Set sự kiện Onclick cho các Button
 //        Buton xem sản phẩm
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loadFragment(new ChiTietSPFrgm(sanPham));
-            }
-        });
+
 //        Button thêm sản phẩm vào giỏ hàng (Icon ADD)
-        holder.add_sanpham.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        //su kien khi soluongSP =0 thì làm mờ
+        int soluongSP=sanPham.getSoLuongSP();
+        if (soluongSP>=1){
+            holder.itemView.setEnabled(true);
+            holder.itemView.setAlpha(1.0f);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    loadFragment(new ChiTietSPFrgm(sanPham));
+                }
+            });
+            holder.add_sanpham.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 //                Khởi tạo Model
-                GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "M", "Đen",sanPham.getPrice());
+                    GioHang gioHang = new GioHang(1, sanPham.getId(), 1, "M", "Đen",sanPham.getPrice());
 //                Check Valid SP (SanPham.ID, Size)
-                ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
+                    ArrayList<GioHang> outList = daoGioHang.checkValidGioHang(gioHang);
 //                Toast.makeText(context, outList.size() + "", Toast.LENGTH_SHORT).show();
-                if (outList.size() != 0) {
+                    if (outList.size() != 0) {
 //                - Có: Update số lượng
-                    GioHang gioHang1 = outList.get(0);
+                        GioHang gioHang1 = outList.get(0);
 //                    Toast.makeText(context, "OldSL: " + gioHang1.getSoLuong(), Toast.LENGTH_SHORT).show();
-                    int newSL = gioHang1.getSoLuong() + 1;
+                        int newSL = gioHang1.getSoLuong() + 1;
 //                    Toast.makeText(context, "NewSL" + newSL, Toast.LENGTH_SHORT).show();
-                    gioHang.setSoLuong(newSL);
-                    boolean kiemtra = daoGioHang.updateGioHang(gioHang);
-                    if (kiemtra) {
-                        notifyDataSetChanged();
+                        gioHang.setSoLuong(newSL);
+                        boolean kiemtra = daoGioHang.updateGioHang(gioHang);
+                        if (kiemtra) {
+                            notifyDataSetChanged();
 //                        Toast.makeText(context, "Done!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(context, "Update SL Fail!", Toast.LENGTH_SHORT).show();
-                    }
-                } else {
 //                - Không: Thêm sản phẩm
-                    boolean check = daoGioHang.addGiohang(gioHang);
-                    if (check) {
-                        Toast.makeText(context, "Thêm sản phẩm thành công!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show();
+                        boolean check = daoGioHang.addGiohang(gioHang);
+                        if (check) {
+                            Toast.makeText(context, "Thêm sản phẩm thành công!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
-            }
-        });
+            });
+        }else{
+            holder.itemView.setEnabled(false);
+            holder.itemView.setAlpha(0.5f);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "Sản phẩm không có sẵn", Toast.LENGTH_SHORT).show();
+                }
+            });
+            holder.add_sanpham.setEnabled(false);
+        }
+
 
         SharedPreferences pref = context.getSharedPreferences("USER_FILE", context.MODE_PRIVATE);
         int maUser = pref.getInt("MA", 0);

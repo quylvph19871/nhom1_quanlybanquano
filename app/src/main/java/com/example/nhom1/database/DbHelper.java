@@ -31,7 +31,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "TenSanPham TEXT,\n" +
                 "Price double,\n" +
                 "MaLoai INTEGER REFERENCES THELOAI(maLoai),\n" +
-                "MoTa TEXT\n" +
+                "MoTa TEXT,\n" +"SoLuongSP INTEGER\n"+
 
                 ");");
         db.execSQL(createTableSanPham);

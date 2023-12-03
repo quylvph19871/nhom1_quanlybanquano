@@ -7,6 +7,15 @@ public class SanPham {
     Double Price;
     int MaLoai;
     String Mota;
+    int SoLuongSP;
+
+    public int getSoLuongSP() {
+        return SoLuongSP;
+    }
+
+    public void setSoLuongSP(int soLuongSP) {
+        SoLuongSP = soLuongSP;
+    }
 
     public int getId() {
         return id;
@@ -26,16 +35,15 @@ public class SanPham {
 
     }
 
-    public SanPham(int id, String image, String tenSanPham, Double price, int maLoai, String mota) {
+    public SanPham(int id, String image, String tenSanPham, Double price, int maLoai, String mota, int soLuongSP) {
         this.id = id;
         this.image = image;
         TenSanPham = tenSanPham;
         Price = price;
         MaLoai = maLoai;
         Mota = mota;
+        SoLuongSP = soLuongSP;
     }
-
-
 
     public String getImage() {
         return image;

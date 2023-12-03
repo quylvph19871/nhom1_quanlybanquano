@@ -27,10 +27,12 @@ import com.example.nhom1.Adapter.AdapterHoaDon;
 import com.example.nhom1.DAOModel.DAOGioHang;
 import com.example.nhom1.DAOModel.DAOHoaDon;
 import com.example.nhom1.DAOModel.DAOLuuHD;
+import com.example.nhom1.DAOModel.DAOSanPham;
 import com.example.nhom1.DAOModel.DAOUser;
 import com.example.nhom1.Model.GioHang;
 import com.example.nhom1.Model.HoaDon;
 import com.example.nhom1.Model.LuuHoaDon;
+import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.Model.User;
 import com.example.nhom1.R;
 
@@ -200,6 +202,7 @@ public class StoreFrgm extends Fragment {
                         btnHoaDonXN.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+
 //                            Tạo Model HoaDon, Thêm vào bảng Lưu Hóa đơn
                                 HoaDon hoaDon = new HoaDon(maUser, tenKH, ngayTaoHD, 1);
                                 boolean check = daoHoaDon.addHoaDon(hoaDon);
@@ -208,11 +211,18 @@ public class StoreFrgm extends Fragment {
                                 }
                                 ArrayList<HoaDon> listHoaDon = daoHoaDon.getHoaDon();
                                 int listHDSize = listHoaDon.size();
+                                DAOSanPham daoSanPham=new DAOSanPham(getContext());
 //                            Lấy ra danh sách Hóa đơn
                                 if (listHDSize > 0){
                                     boolean checkLuuHD = true;
                                     for (int i = 0; i < listHDSize; i++) {
                                         HoaDon hoaDonModel = listHoaDon.get(i);
+                                        GioHang gioHangItem = listGioHang.get(i);
+
+                                        // Giảm số lượng sản phẩm trong cơ sở dữ liệu
+                                        int maSanPham = gioHangItem.getMaSanPham();
+                                        int soLuongMua = gioHangItem.getSoLuong();
+                                        daoSanPham.giamSoLuongSanPham(maSanPham, soLuongMua);
 //                                    Tạo Model Lưu Hóa đơn
                                         LuuHoaDon luuHoaDon = new LuuHoaDon(hoaDonModel.getMaHoaDon(),
                                                 hoaDonModel.getMaUser(),

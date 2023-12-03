@@ -80,7 +80,9 @@ public class DAOGioHang {
         }
     }
 
-//    Check tồn tại SP
+
+
+    //    Check tồn tại SP
     public ArrayList<GioHang> checkValidGioHang(GioHang gioHang){
         ArrayList<GioHang> list = new ArrayList<>();
         Cursor cursor = database.rawQuery("SELECT GioHang.MaGioHang, GioHang.masanpham, SanPham.image, SanPham.tensanpham, GioHang.SoLuong, GioHang.size,GioHang.mau, GioHang.dongia FROM GioHang, SanPham WHERE GioHang.MaSanPham = SanPham.MaSanPham AND SanPham.MaSanPham = ? AND GioHang.size = ?", new String[]{String.valueOf(gioHang.getMaSanPham()), gioHang.getSize()});

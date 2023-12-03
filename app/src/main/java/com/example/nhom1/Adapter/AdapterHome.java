@@ -47,13 +47,22 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolder>{
         SanPham sanPham = list.get(position);
         Picasso.get().load(sanPham.getImage()).into(holder.itemSpHomeImg);
         holder.itemSpHomeTen.setText(sanPham.getTenSanPham());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.bottomNavigationView.setSelectedItemId(R.id.pageSanPham);
-                loadFragment(new ChiTietSPFrgm(sanPham));
-            }
-        });
+        int soLuongSP=sanPham.getSoLuongSP();
+        if (soLuongSP>=1){
+            holder.itemView.setEnabled(true);
+            holder.itemView.setAlpha(1.0f);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.bottomNavigationView.setSelectedItemId(R.id.pageSanPham);
+                    loadFragment(new ChiTietSPFrgm(sanPham));
+                }
+            });
+        }else{
+            holder.itemView.setEnabled(false);
+            holder.itemView.setAlpha(0.5f);
+        }
+
     }
 
     @Override

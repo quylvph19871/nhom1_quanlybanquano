@@ -1,5 +1,6 @@
 package com.example.nhom1.DAOModel;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -23,8 +24,8 @@ public class DAOSanPham {
         database = dbHelper.getReadableDatabase();
     }
 
-    public void insertData(String image, String TenSanPham, double Price, int MaLoai, String MoTa) {
-        String sql = "INSERT INTO SanPham VALUES (NULL, ?,?,?,?,?)";
+    public void insertData(String image, String TenSanPham, double Price, int MaLoai, String MoTa, int SoLuongSP) {
+        String sql = "INSERT INTO SanPham VALUES (NULL, ?,?,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
@@ -33,11 +34,12 @@ public class DAOSanPham {
         statement.bindDouble(3, Price);
         statement.bindLong(4, MaLoai);
         statement.bindString(5, MoTa);
+        statement.bindString(6,SoLuongSP+"");
         statement.executeInsert();
     }
 
-    public void updateSanPham(String image, String TenSanPham, double Price, int MaLoai, String MoTa, int id) {
-        String sql = "UPDATE SanPham SET image = ?, TenSanPham = ?, Price = ?, MaLoai = ?, MoTa = ? WHERE MaSanPham =?";
+    public void updateSanPham(String image, String TenSanPham, double Price, int MaLoai, String MoTa, int id, int SoLuongSP) {
+        String sql = "UPDATE SanPham SET image = ?, TenSanPham = ?, Price = ?, MaLoai = ?, MoTa = ?,SoLuongSP=? WHERE MaSanPham =?";
         SQLiteStatement statement = database.compileStatement(sql);
 
         statement.bindString(1, image);
@@ -45,8 +47,8 @@ public class DAOSanPham {
         statement.bindDouble(3, Price);
         statement.bindLong(4, MaLoai);
         statement.bindString(5, MoTa);
-        statement.bindDouble(6, (double) id);
-
+        statement.bindString(6, SoLuongSP+"");
+        statement.bindDouble(7, (double) id);
         statement.execute();
         database.close();
     }
@@ -97,9 +99,35 @@ public class DAOSanPham {
             double price = cursor.getDouble(3);
             int maLoai = cursor.getInt(4);
             String moTa = cursor.getString(5);
-            list.add(new SanPham(id, image, name, price, maLoai, moTa));
+            int soLuongSP=cursor.getInt(6);
+            list.add(new SanPham(id, image, name, price, maLoai, moTa, soLuongSP));
         }
         return list;
+    }
+    // Inside DAOSanPham class
+    @SuppressLint("Range")
+    public void giamSoLuongSanPham(int maSanPham, int soLuongMua) {
+        // Lấy số lượng hiện tại
+        int soLuongHienTai = 0;
+        String query = "SELECT SoLuongSP FROM SanPham WHERE MaSanPham = " + maSanPham;
+        Cursor cursor = database.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            soLuongHienTai = cursor.getInt(cursor.getColumnIndex("SoLuongSP"));
+        }
+        cursor.close();
+
+        // Kiểm tra xem có đủ số lượng để giảm không
+        if (soLuongHienTai >= soLuongMua) {
+            // Giảm số lượng đi
+            int soLuongMoi = soLuongHienTai - soLuongMua;
+
+            // Cập nhật số lượng trong cơ sở dữ liệu
+            ContentValues values = new ContentValues();
+            values.put("SoLuongSP", soLuongMoi);
+            database.update("SanPham", values, "MaSanPham = ?", new String[]{String.valueOf(maSanPham)});
+        }
+
+        database.close();
     }
 
 //    DAO LOẠI SẢN PHẨM

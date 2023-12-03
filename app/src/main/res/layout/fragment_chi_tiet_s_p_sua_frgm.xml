@@ -60,7 +60,13 @@
                     android:textColor="@color/text"
                     android:textSize="20dp"
                     android:textStyle="bold" />
-
+                <TextView
+                    android:id="@+id/txtCTSPSoLuongSP"
+                    style="@style/edt_Label"
+                    android:text="Số lượng Sản phẩm: 20"
+                    android:textColor="@color/text"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
                 <TextView
                     style="@style/edt_Label"
                     android:text="Mô tả"
