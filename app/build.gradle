@@ -1,7 +1,6 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '8.0.2'
 }
-
 android {
     namespace 'com.example.nhom1'
     compileSdk 34

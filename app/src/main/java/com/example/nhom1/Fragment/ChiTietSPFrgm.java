@@ -1,13 +1,11 @@
 package com.example.nhom1.Fragment;
 
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -157,17 +155,21 @@ public class ChiTietSPFrgm extends Fragment {
         btnSoLuongTang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (soLuong < sanPham.getSoLuongSP()) {
+                    soLuong++;
+                    if (soLuong < 10) {
+                        txtChiTietSL.setText("0" + soLuong);
+                    } else {
+                        txtChiTietSL.setText(soLuong + "");
+                    }
+                    tongTien = tinhTien(soLuong, donGia, donGiaGoc);
+                    String mTinhTien = String.format("%,.0f", tongTien);
+                    txtChiTietTongTien.setText(mTinhTien + "đ");
+                } else {
+                    Toast.makeText(getActivity(), "Đã quá giới hạn số lượng" + " " + soLuong, Toast.LENGTH_SHORT).show();
+                }
 
-                soLuong++;
-                if (soLuong < 10){
-                    txtChiTietSL.setText("0" + soLuong);
-                }
-                else {
-                    txtChiTietSL.setText(soLuong + "");
-                }
-                tongTien = tinhTien(soLuong, donGia, donGiaGoc);
-                String mTinhTien = String.format("%,.0f", tongTien);
-                txtChiTietTongTien.setText(mTinhTien + "đ");
+
             }
         });
 
