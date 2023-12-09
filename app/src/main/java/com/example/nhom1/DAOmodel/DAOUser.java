@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
+import androidx.annotation.NonNull;
+
 import com.example.nhom1.Model.User;
 import com.example.nhom1.database.DbHelper;
 
@@ -25,7 +27,7 @@ public class DAOUser {
     }
 
 //    Add User
-    public long insertUser(User user) {
+    public long insertUser(@NonNull User user) {
         ContentValues values = new ContentValues();
         values.put("FullName", user.getFullName());
         values.put("Username", user.getUsername());

@@ -123,6 +123,7 @@ public class AdapterSanPham extends RecyclerView.Adapter<AdapterSanPham.UserView
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "Sản phẩm không có sẵn", Toast.LENGTH_SHORT).show();
+
                 }
             });
             holder.add_sanpham.setEnabled(false);

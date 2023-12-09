@@ -104,7 +104,7 @@ public class DAOSanPham {
         }
         return list;
     }
-    // Inside DAOSanPham class
+    // giam số lượng sản phẩm sau khi thanh toán
     @SuppressLint("Range")
     public void giamSoLuongSanPham(int maSanPham, int soLuongMua) {
         // Lấy số lượng hiện tại
