@@ -34,7 +34,7 @@
 
             <TextView
                 android:id="@+id/txtTknvTenNv"
-                android:layout_width="190dp"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:maxWidth="230dp"
                 android:layout_marginLeft="10dp"
@@ -46,12 +46,13 @@
 
             <TextView
                 android:id="@+id/txtTknvDoanhThu"
-                android:layout_width="145dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="1.000.000"
                 android:fontFamily="@font/ct_font_medium"
                 android:textStyle="bold"
                 android:gravity="center"
+
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/black"

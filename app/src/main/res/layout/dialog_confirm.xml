@@ -11,8 +11,8 @@
         android:background="@drawable/ct_dialog"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:gravity="center"
         android:orientation="vertical"
         >
@@ -44,7 +44,7 @@
 
             <EditText
                 android:id="@+id/btnDialogHuy"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"
                 android:backgroundTint="@color/white"
@@ -55,8 +55,6 @@
                 android:textStyle="bold"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:editable="false"
                 android:focusable="false"
                 android:layout_marginRight="15dp"
@@ -64,7 +62,7 @@
 
             <EditText
                 android:id="@+id/btnDialogXN"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bo_tron_edt"
                 android:backgroundTint="@color/white"
@@ -75,8 +73,6 @@
                 android:textStyle="bold"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:editable="false"
                 android:focusable="false"
                 />

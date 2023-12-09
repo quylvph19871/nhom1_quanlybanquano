@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 
-
 import com.example.nhom1.Model.SanPham;
 import com.example.nhom1.Model.TheLoai;
 import com.example.nhom1.database.DbHelper;

@@ -64,14 +64,14 @@
                 <TextView
                     style="@style/edt_Label"
                     android:layout_marginLeft="10dp"
-                    android:layout_width="190dp"
+                    android:layout_width="160dp"
                     android:text="Tên Nhân Viên"
                     android:textColor="@color/text"
                     android:textSize="23dp" />
 
                 <TextView
                     style="@style/edt_Label"
-                    android:layout_width="145dp"
+                    android:layout_width="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="Doanh số"
                     android:textAlignment="center"

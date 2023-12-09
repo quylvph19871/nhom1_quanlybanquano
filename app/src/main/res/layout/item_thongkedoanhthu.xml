@@ -24,7 +24,7 @@
             <TextView
                 android:id="@+id/txtTkdtTenSP"
                 android:layout_height="wrap_content"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:text="Nguyễn Quốc A"
                 android:maxWidth="200dp"
                 android:fontFamily="@font/ct_font_medium"
@@ -36,7 +36,7 @@
             <TextView
                 android:id="@+id/txtTkdtThanhTien"
                 android:layout_height="wrap_content"
-                android:layout_width="190dp"
+                android:layout_width="170dp"
                 android:maxWidth="190dp"
                 android:text="1.000.000"
                 android:fontFamily="@font/ct_font_medium"

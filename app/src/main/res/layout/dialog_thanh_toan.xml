@@ -114,7 +114,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="160dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:text="Tên Sản Phẩm"
                 android:fontFamily="@font/ct_font_medium"
@@ -129,7 +129,7 @@
                 android:background="@android:color/darker_gray" />
 
             <TextView
-                android:layout_width="110dp"
+                android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="Đơn giá"
                 android:fontFamily="@font/ct_font_medium"
